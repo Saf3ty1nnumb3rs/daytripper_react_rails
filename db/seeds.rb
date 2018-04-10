@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+User.destroy_all
+Post.destroy_all
+Image.destroy_all
+Destination.destroy_all
+
+
+josh = User.create!(username: 'S4f3ty' , image: , email: , location: 'Murph\'s mom\'s bedroom' )
+murphdawg = User.create!(username: 'MurphDawg' , image: , email: , location: 'Lawrenceville, GA' )
+camcam = User.create!(username: 'CamCam', image: , email: , location: 'EAV')
+wilhelm = User.create!(username: 'KaiserWilhelm', image: , email: , location: 'Don\'t Care' )
+blake = User.create!(username: 'NatureboyBlakeSavage', image: , email: , location: 'Atlanta, GA' )
