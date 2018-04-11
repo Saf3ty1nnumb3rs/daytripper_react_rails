@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class PostDelete extends Component {
+class DeletePost extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class PostDelete extends Component {
     }
 }
 
-export default PostDelete;
+export default DeletePost;
