@@ -1,24 +1,34 @@
+![Nature Pic!](https://img.etsystatic.com/il/076150/612692921/il_570xN.612692921_k4iy.jpg?version=2)
+
+
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<a name="JoshLink" href="https://www.linkedin.com/in/joshsample/">
+Linked In</a>
 
-Things you may want to cover:
+<a name="Heroku" href="https://daytripperapp.herokuapp.com/">
+DayTripper on Heroku</a>
 
-* Ruby version
+<a name="GitHub" href="https://github.com/Saf3ty1nnumb3rs/daytripper_react_rails">
+DayTripper on GitHub</a>
 
-* System dependencies
+<a name="Trello" href="https://trello.com/b/JCKbRAgF/project-4">Trello</a>
 
-* Configuration
 
-* Database creation
+## Technologies Used for the Development of This App
 
-* Database initialization
+* PostgreSQL
 
-* How to run the test suite
+* Ruby
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby on Rails
 
-* Deployment instructions
+* ReactJS
+
+* NodeJS
+
+* Semantic UI for React
+
+* Heroku
 
 * ...
