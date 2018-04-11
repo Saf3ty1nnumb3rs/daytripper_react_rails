@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class DeleteDestination extends Component {
+class IndexView extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class DeleteDestination extends Component {
     }
 }
 
-export default DeleteDestination;
+export default IndexView;
