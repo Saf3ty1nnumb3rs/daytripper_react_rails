@@ -1,5 +1,5 @@
 class Api::ImagesController < ApplicationController
-befrore_action :def_image, only [:show, :destroy]
+before_action :def_image, only: [:show, :destroy]
 
     def index
         @images = Destination.find(params[:destination_id]).images.order(id: :desc)
