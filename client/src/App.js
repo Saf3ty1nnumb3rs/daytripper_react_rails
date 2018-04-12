@@ -1,26 +1,97 @@
-import React, { Component } from 'react';
-import logo from './images/guidestones.jpg';
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import axios from 'axios'
-import { injectGlobal } from 'styled-components'
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import axios from "axios";
+import { injectGlobal } from "styled-components";
+import "./App.css";
 
-import LandingView from './components/universalcomponents/LandingView'
-import IndexView from './components/universalcomponents/IndexView'
+import LandingView from "./components/universalcomponents/LandingView";
+import IndexView from "./components/universalcomponents/IndexView";
+import DestinationPage from "./components/destinationcomponents/DestinationPage"
+injectGlobal`
+*, :after, :before {
+  box-sizing: inherit;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+`;
 
 class App extends Component {
+  state = {
+    users: [],
+    destinations: [],
+    showLogin: false,
+    error1: "",
+    error2: ""
+  };
+
+  componentDidMount() {
+    this.getAllUsers();
+    this.getAllDestinations();
+  }
+
+  getAllUsers = async () => {
+    try {
+      const res = await axios.get("/api/users");
+      console.log(res.data);
+      this.setState({
+        users: res.data.users
+      });
+    } catch (err) {
+      console.log(err);
+      this.setState({
+        error1: err.message
+      });
+    }
+  };
+
+  getAllDestinations = async () => {
+    try {
+      const res = await axios.get("/api/destinations");
+      console.log(res.data);
+      this.setState({
+        destinations: res.data.destinations
+      });
+    } catch (err) {
+      console.log(err);
+      this.setState({
+        error2: err.message
+      });
+    }
+  };
+
   render() {
+    const LandingViewWrap = props => {
+      return <LandingView {...props} />;
+    };
+    const IndexWrapper = props => {
+      return (
+        <IndexView
+          getAllDestinations={this.getAllDestinations}
+          getAllUsers={this.getAllUsers}
+          users={this.state.users}
+          destinations={this.state.destinations}
+          showLogin={this.state.showLogin}
+          {...props}
+        />
+      );
+    };
+    const DestinationWrapper = props => {
+      return <DestinationPage destinations={this.state.destinations} {...props} />
+
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to The Thunderdome</h1>
-        </header>
-        <p className="App-intro">
-          bitches
-          
-        </p>
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" render={LandingViewWrap} />
+            <Route exact path="/destinations" render={IndexWrapper} />
+            <Route exact path="/destinations/:id" render={DestinationWrapper} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
