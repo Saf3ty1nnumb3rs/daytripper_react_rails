@@ -14,8 +14,8 @@ Image.destroy_all
 Destination.destroy_all
 
 
-
-owen = User.create!(username: 'Owen', image: 'https://ca.slack-edge.com/T0351JZQ0-U7YREQ5JL-356de9966a9b-72', email: 'owen@drumgod.com' , location: 'Mercedes Benz Stadium')
+sj = User.create!(username: 'Sweety', image: 'https://media.licdn.com/dms/image/C4E03AQFh6iPeA5Vmtg/profile-displayphoto-shrink_800_800/0?e=1528732800&v=beta&t=lEnZN9nDiaYU2ASyLEMrSTfRbxqlv1n2zEt33Xf8JZg', email: 'sjk@gmail.com', location: 'ATL!!!')
+owen = User.create!(username: 'Owen', image: 'https://www.drummercafe.com/media/com_mtree/images/listings/m/271.jpg', email: 'owen@drumgod.com' , location: 'Mercedes Benz Stadium')
 bennett = User.create!(username: 'B-rock', image: 'https://files.slack.com/files-pri/T0351JZQ0-FA5P6D8R0/10523147_894409773904492_7039320791338872224_n.jpg', email: 'myemail@myemail.com', location: 'Inman Park')
 josh = User.create!(username: 'S4f3ty' , image: 'https://media.licdn.com/dms/image/C4E03AQF0yZmy5aAz9g/profile-displayphoto-shrink_200_200/0?e=1528592400&v=beta&t=fHbYRhKC7Jz-rlOY110O6a_D7PleEkZpkmp3J02hu84', email: 'fielddayforthesundays@gmail.com' , location: 'Murph\'s mom\'s bedroom' )
 murphdawg = User.create!(username: 'MurphDawg' , image: 'https://media.licdn.com/dms/image/C4E03AQHm8ZI5qfxY5g/profile-displayphoto-shrink_800_800/0?e=1528592400&v=beta&t=_XhlapRYG0v5AdBnivugDPNDc3gDOVr6uAhKXNyq2OM', email: 'jdawg@email.com' , location: 'Lawrenceville, GA' )
