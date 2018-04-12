@@ -4,16 +4,27 @@ import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
 const CardWrap = styled.div`
-  width: 30vw;
-  height: 30vw;
+  width: 28vw;
+  height: 28vw;
   overflow: hidden;
   position: relative;
   img {
-    width: 36vw;
+    width: 32vw;
     height: auto;
     opacity: 0.2;
     z-index: 0;
   }
+  button.view {
+    top: 10px;
+    left: 20vw;
+    border: none;
+    text-shadow: 1px 1px lightgreen;
+    background: transparent;
+    position: absolute;
+    z-index: 1000;
+    
+  }
+  
   .buttons {
     display: flex;
     .delete {
@@ -60,41 +71,26 @@ const CardWrap = styled.div`
       width: 6vw;
     }
   }
-  @media (min-width: 438px) {
-    .buttons button {
-        
-      height: 6vw;
-      width: 12vw;
-    }
-  }
-  @media (min-width: 738px) {
-    .buttons button {
-      height: 5vw;
-      width: 10vw;
-    }
-  }
-  @media (min-width: 945px) {
-    
-    .buttons button {
-      height: 3vw;
-      width: 6vw;
-    }
-  }
   @media (max-width: 438px) {
-    .buttons button {  
-    font-size: 7px;
+    .buttons button {
+      font-size: 7px;
     }
+    button.view {
+        left: 15vw;
   }
+  }
+ 
+    
   @media (max-width: 945px) {
     .buttons {
       display: block;
     }
-}
+  }
 `;
 
 class UserCard extends Component {
   state = {
-    cardView: true,
+    innerCardView: true,
     editView: false,
     deleteView: false
   };
@@ -102,15 +98,15 @@ class UserCard extends Component {
   toggleEditView = () => {
     this.setState({ editView: !this.state.editView });
     this.state.editView
-      ? this.setState({ cardView: false, deleteView: false })
-      : this.setState({ cardView: true, deleteView: false });
+      ? this.setState({ innerCardView: false, deleteView: false })
+      : this.setState({ innerCardView: true, deleteView: false });
   };
 
   toggleDeleteView = () => {
     this.setState({ deleteView: !this.state.deleteView });
     this.state.deleteView
-      ? this.setState({ cardView: false, editView: false })
-      : this.setState({ cardView: true, editView: false });
+      ? this.setState({ innerCardView: false, editView: false })
+      : this.setState({ innerCardView: true, editView: false });
   };
 
   render() {
@@ -118,8 +114,11 @@ class UserCard extends Component {
 
     return (
       <div>
-        {this.state.cardView ? (
+        {this.state.innerCardView ? (
           <CardWrap>
+            <button className="view" onClick={this.props.toggleView}>
+              View
+            </button>
             <div className="text">
               <p>{user.username}</p>
               <p>location:{user.location}</p>
@@ -140,9 +139,21 @@ class UserCard extends Component {
           </CardWrap>
         ) : null}
 
-        {this.state.editView ? <EditUser {...this.props} /> : null}
+        {this.state.editView ? (
+          <EditUser
+            {...this.props}
+            toggleDeleteView={this.toggleDeleteView}
+            toggleEditView={this.toggleEditView}
+          />
+        ) : null}
 
-        {this.state.deleteView ? <DeleteUser /> : null}
+        {this.state.deleteView ? (
+          <DeleteUser
+            {...this.props}
+            toggleDeleteView={this.toggleDeleteView}
+            toggleEditView={this.toggleEditView}
+          />
+        ) : null}
       </div>
     );
   }

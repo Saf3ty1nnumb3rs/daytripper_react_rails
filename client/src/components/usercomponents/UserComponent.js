@@ -4,11 +4,7 @@ import ViewUser from "./ViewUser";
 import UserCard from "./UserCard";
 
 const UserWrap = styled.div`
-button {
-    width: 30vw;
-  height: 30vw;
-  padding: 0;
-}
+
 
 `
 
@@ -29,25 +25,25 @@ class UserComponent extends Component {
     return (
       <UserWrap>
         {this.state.viewUser ? (
-          <button onClick={this.toggleView}>
+          
             <ViewUser
               index={this.props.index}
               userId={this.props.userId}
               id={this.props.id}
               users={this.props.users}
+              toggleView={this.toggleView}
             />
-          </button>
+         
         ) : null}
         {this.state.cardView ? (
-          <button onClick={this.toggleView}>
             <UserCard
               index={this.props.index}
               userId={this.props.userId}
               id={this.props.id}
               users={this.props.users}
               viewUser={this.state.viewUser}
+              toggleView={this.toggleView}
             />
-          </button>
         ) : null}
       </UserWrap>
     );
