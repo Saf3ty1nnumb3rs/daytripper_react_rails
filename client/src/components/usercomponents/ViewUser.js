@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 
 const ImageWrap = styled.div`
-  width: 13vw;
-  height: 13vw;
+  width: 30vw;
+  height: 30vw;
   overflow: hidden;
   img {
-    width: 16vw;
+    width: 34vw;
     height: auto;
   }
 `;

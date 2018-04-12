@@ -13,8 +13,8 @@ Post.destroy_all
 Image.destroy_all
 Destination.destroy_all
 
-
-sj = User.create!(username: 'Sweety', image: 'https://media.licdn.com/dms/image/C4E03AQFh6iPeA5Vmtg/profile-displayphoto-shrink_800_800/0?e=1528732800&v=beta&t=lEnZN9nDiaYU2ASyLEMrSTfRbxqlv1n2zEt33Xf8JZg', email: 'sjk@gmail.com', location: 'ATL!!!')
+cricket = User.create!(username: 'Cricket', image: 'https://files.slack.com/files-tmb/T0351JZQ0-FA6MC4T7Y-9e13997841/image_uploaded_from_ios_1024.jpg', email: 'cricketmcgillicuddy@aol.com', location: 'Will\'s mom\'s house' )
+sj = User.create!(username: 'Sweety', image: 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fscontent-iad3-1.xx.fbcdn.net%2Fv%2Ft1.0-9%2F30571400_10155535695339150_9020289133943193600_n.jpg%3F_nc_cat%3D0%26oh%3D6a39ddd3d0b98bb0e961a6d88f792c7f%26oe%3D5B719ED2' , email: 'sjk@gmail.com', location: 'ATL!!!')
 owen = User.create!(username: 'Owen', image: 'https://www.drummercafe.com/media/com_mtree/images/listings/m/271.jpg', email: 'owen@drumgod.com' , location: 'Mercedes Benz Stadium')
 bennett = User.create!(username: 'B-rock', image: 'https://files.slack.com/files-pri/T0351JZQ0-FA5P6D8R0/10523147_894409773904492_7039320791338872224_n.jpg', email: 'myemail@myemail.com', location: 'Inman Park')
 josh = User.create!(username: 'S4f3ty' , image: 'https://media.licdn.com/dms/image/C4E03AQF0yZmy5aAz9g/profile-displayphoto-shrink_200_200/0?e=1528592400&v=beta&t=fHbYRhKC7Jz-rlOY110O6a_D7PleEkZpkmp3J02hu84', email: 'fielddayforthesundays@gmail.com' , location: 'Murph\'s mom\'s bedroom' )
