@@ -12,16 +12,6 @@ const DeleteWrapper = styled.div`
     opacity: 0.2;
     z-index: 0;
   }
-  button.view {
-    top: 10px;
-    left: 20vw;
-    border: none;
-    text-shadow: 1px 1px lightgreen;
-    background: transparent;
-    position: absolute;
-    z-index: 1000;
-    
-  }
   
   .buttons {
     display: flex;
@@ -90,27 +80,27 @@ class DeleteUser extends Component {
   render() {
     const user = this.props.users[this.props.index];
     return (
+
+
       <DeleteWrapper>
-        <button className="view" onClick={this.props.toggleView}>
-          View
-        </button>
         <div className="text">
           <p>Are you sure you want to delete {user.username}? </p>
 
-          <div clasName="buttons">
+          <div className="buttons">
             <div>
               <button className="edit" onClick={this.props.toggleDeleteView}>
                 Back
               </button>
             </div>
             <div>
-              <button className="delete" onClick={this.toggleRemoveUser}>
+              <button className="delete" onClick={this.props.deleteUser}>
                 Delete
               </button>
-              <img src={user.image} alt={user.username} />
             </div>
           </div>
         </div>
+        <img src={user.image} alt={user.username} />
+
       </DeleteWrapper>
     );
   }

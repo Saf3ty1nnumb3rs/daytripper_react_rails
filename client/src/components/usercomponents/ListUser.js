@@ -23,6 +23,7 @@ class ListUser extends Component {
               userId={user.id}
               id={user.username}
               users={this.props.users}
+              getAllUsers={this.props.getAllUsers}
             />
           );
         })}

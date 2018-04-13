@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import EditUser from "./EditUser";
-import DeleteUser from "./DeleteUser";
+
 
 const CardWrap = styled.div`
   width: 28vw;
@@ -88,6 +87,7 @@ const CardWrap = styled.div`
   }
 `;
 
+
 class UserCard extends Component {
   
 
@@ -97,8 +97,8 @@ class UserCard extends Component {
     const user = this.props.users[this.props.index];
 
     return (
-      <div>
-        {this.props.cardView ? (
+      
+       
           <CardWrap>
             <button className="view" onClick={this.props.toggleUserView}>
               View
@@ -121,24 +121,12 @@ class UserCard extends Component {
             </div>
             <img src={user.image} alt={user.username} />
           </CardWrap>
-        ) : null}
+       
 
-        {this.props.editView ? (
-          <EditUser
-            {...this.props}
-            toggleDeleteView={this.props.toggleDeleteView}
-            toggleEditView={this.props.toggleEditView}
-          />
-        ) : null}
+        
 
-        {this.props.deleteView ? (
-          <DeleteUser
-            {...this.props}
-            toggleDeleteView={this.props.toggleDeleteView}
-            toggleEditView={this.props.toggleEditView}
-          />
-        ) : null}
-      </div>
+        
+     
     );
   }
 }
