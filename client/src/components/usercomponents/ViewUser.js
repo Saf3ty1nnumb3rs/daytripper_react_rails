@@ -33,7 +33,7 @@ class ViewUser extends Component {
         return (
             <ImageWrap>
                 <img src={user.image} alt={user.username}/>
-                <button onClick={this.props.toggleView}>View</button>
+                <button onClick={this.props.toggleUserView}>View</button>
             </ImageWrap>
         );
     }

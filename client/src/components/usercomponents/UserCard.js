@@ -89,34 +89,18 @@ const CardWrap = styled.div`
 `;
 
 class UserCard extends Component {
-  state = {
-    innerCardView: true,
-    editView: false,
-    deleteView: false
-  };
+  
 
-  toggleEditView = () => {
-    this.setState({ editView: !this.state.editView });
-    this.state.editView
-      ? this.setState({ innerCardView: false, deleteView: false })
-      : this.setState({ innerCardView: true, deleteView: false });
-  };
-
-  toggleDeleteView = () => {
-    this.setState({ deleteView: !this.state.deleteView });
-    this.state.deleteView
-      ? this.setState({ innerCardView: false, editView: false })
-      : this.setState({ innerCardView: true, editView: false });
-  };
+  
 
   render() {
     const user = this.props.users[this.props.index];
 
     return (
       <div>
-        {this.state.innerCardView ? (
+        {this.props.cardView ? (
           <CardWrap>
-            <button className="view" onClick={this.props.toggleView}>
+            <button className="view" onClick={this.props.toggleUserView}>
               View
             </button>
             <div className="text">
@@ -124,12 +108,12 @@ class UserCard extends Component {
               <p>location:{user.location}</p>
               <div className="buttons">
                 <div>
-                  <button className="edit" onClick={this.toggleEditView}>
+                  <button className="edit" onClick={this.props.toggleEditView}>
                     Edit
                   </button>
                 </div>
                 <div>
-                  <button className="delete" onClick={this.toggleDeleteView}>
+                  <button className="delete" onClick={this.props.toggleDeleteView}>
                     Delete
                   </button>
                 </div>
@@ -139,19 +123,19 @@ class UserCard extends Component {
           </CardWrap>
         ) : null}
 
-        {this.state.editView ? (
+        {this.props.editView ? (
           <EditUser
             {...this.props}
-            toggleDeleteView={this.toggleDeleteView}
-            toggleEditView={this.toggleEditView}
+            toggleDeleteView={this.props.toggleDeleteView}
+            toggleEditView={this.props.toggleEditView}
           />
         ) : null}
 
-        {this.state.deleteView ? (
+        {this.props.deleteView ? (
           <DeleteUser
             {...this.props}
-            toggleDeleteView={this.toggleDeleteView}
-            toggleEditView={this.toggleEditView}
+            toggleDeleteView={this.props.toggleDeleteView}
+            toggleEditView={this.props.toggleEditView}
           />
         ) : null}
       </div>
