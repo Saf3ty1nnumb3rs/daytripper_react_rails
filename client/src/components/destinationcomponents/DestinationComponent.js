@@ -4,6 +4,13 @@ import axios from "axios";
 import ListImage from "../imagecomponents/ListImage";
 
 const DestinationWrap = styled.div``;
+const ListContainer = styled.div`
+  height:60vw;
+  margin-top: 100px;
+  margin-bottom: 50px;
+
+
+`
 
 const ImageWrap = styled.div`
   width: 20vw;
@@ -22,8 +29,9 @@ class DestinationComponent extends Component {
     posts: []
   };
 
-  componentDidMount() {
-    this.getSingleDestination(this.props.match.params.id);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props)
+      this.getSingleDestination(this.props.match.params.id);
   }
 
   getSingleDestination = async destinationId => {
@@ -35,16 +43,18 @@ class DestinationComponent extends Component {
       posts: res.data.posts
     });
   };
-  
+
   render() {
     const destination = this.props.match.params.id;
     return (
       <DestinationWrap>
-        <ListImage
-          destId={destination}
-          images={this.state.images}
-          getSingleDestination={this.getSingleDestination}
-        />
+        <ListContainer>
+          <ListImage
+            destId={destination}
+            images={this.state.images}
+            getSingleDestination={this.getSingleDestination}
+          />
+        </ListContainer>
       </DestinationWrap>
     );
   }

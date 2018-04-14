@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "styled-components";
 
 const DeleteWrapper = styled.div`
-width: 24vw;
+  width: 24vw;
   height: 24vw;
   overflow: hidden;
   position: relative;
@@ -12,10 +12,10 @@ width: 24vw;
     opacity: 0.2;
     z-index: 0;
   }
-  
+
   .buttons {
     display: flex;
-    width: 28vw;
+    width: 24vw;
     margin-left: 0;
     padding: 0;
     bottom: 0;
@@ -26,20 +26,20 @@ width: 24vw;
       padding: 0;
       color: white;
       border: none;
-      width: 14vw;
+      width: 12vw;
       height: 30px;
       background-color: #f44336;
+      border-top-right-radius: 8px;
     }
     .edit {
-      border-top-left-radius: 4px;
+      border-top-left-radius: 8px;
       padding: 0;
       color: white;
       border: none;
-      width: 14vw;
+      width: 12vw;
       height: 30px;
       background-color: #008cba;
     }
-   
   }
   .text {
     text-align: left;
@@ -50,18 +50,14 @@ width: 24vw;
   }
 `;
 
-
-
-
-
 class DeleteImage extends Component {
-    render() {
-        const image = this.props.image
-        return (
-             <DeleteWrapper>
-            <div className="text">
+  render() {
+    const image = this.props.image;
+    return (
+      <DeleteWrapper>
+        <div className="text">
           <p>Are you sure you want to delete this image? </p>
-
+        </div>
           <div className="buttons">
             <div>
               <button className="edit" onClick={this.props.toggleDeleteCard}>
@@ -74,11 +70,10 @@ class DeleteImage extends Component {
               </button>
             </div>
           </div>
-        </div>
-        <img src={image.image} alt={image.id} /> 
-            </DeleteWrapper>
-        );
-    }
+        <img src={image.image} alt={image.id} />
+      </DeleteWrapper>
+    );
+  }
 }
 
 export default DeleteImage;

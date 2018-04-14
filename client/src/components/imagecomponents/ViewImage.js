@@ -17,7 +17,6 @@ const ImageWrap = styled.div`
       width: 24vw;
       height: 24vw;
       border: none;
-      text-shadow: 1px 1px lightgreen;
       background: transparent;
       position: absolute;
       

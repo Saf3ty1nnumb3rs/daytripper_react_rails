@@ -31,7 +31,7 @@ const CardWrap = styled.div`
       background-color: #f44336;
     }
     .edit {
-      border-top-left-radius: 4px;
+      border-top-left-radius: 8px;
       padding: 0;
       color: white;
       border: none;

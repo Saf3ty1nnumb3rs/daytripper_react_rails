@@ -15,7 +15,7 @@ const CardWrap = styled.div`
 
   .buttons {
     display: flex;
-    width: 28vw;
+    width: 24vw;
     margin-left: 0;
     padding: 0;
     bottom: 0;
@@ -28,6 +28,7 @@ const CardWrap = styled.div`
       width: 12vw;
       height: 30px;
       background-color: #f44336;
+      border-top-left-radius: 8px;
     }
     .view {
       border-top-right-radius: 8px;
