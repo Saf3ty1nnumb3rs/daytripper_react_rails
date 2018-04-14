@@ -15,7 +15,6 @@ const IndexWrap = styled.div`
   }
   .bottom-list {
     left: 0;
-    bottom: -300px;
   }
 `;
 

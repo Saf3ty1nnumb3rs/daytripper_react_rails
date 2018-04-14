@@ -20,6 +20,9 @@ const DestinationWrap = styled.div`
 `;
 
 class DestinationPage extends Component {
+
+
+   
   render() {
     return (
       <DestinationWrap>

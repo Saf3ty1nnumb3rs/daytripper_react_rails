@@ -10,24 +10,12 @@ const UserWrap = styled.div``;
 
 class UserComponent extends Component {
   state = {
-    user: {},
-    newUser: {},
     viewUser: true,
     cardView: false,
     editView: false,
     deleteView: false
   };
 
-  componentDidMount() {
-    this.setState({ user: this.props.user });
-    this.getSingleUser();
-  }
-
-  getSingleUser = async () => {
-    const userId = this.props.user.id;
-    const res = await axios.get(`/api/users/${userId}`);
-    this.setState({ newUser: res.data });
-  };
   //async await?????? Yes. Async await.
   toggleUserView = async () => {
     await this.setState({ viewUser: !this.state.viewUser });
@@ -100,7 +88,7 @@ class UserComponent extends Component {
 
         {this.state.deleteView ? (
           <DeleteUser
-            user={this.state.user}
+            user={this.props.user}
             deleteUser={this.deleteUser}
             toggleUserView={this.toggleUserView}
             toggleDeleteView={this.toggleDeleteView}
