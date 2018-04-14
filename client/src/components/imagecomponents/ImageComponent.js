@@ -5,6 +5,12 @@ import ViewImage from "./ViewImage";
 import DeleteImage from "./DeleteImage";
 import ImageCard from "./ImageCard";
 
+
+const ImageComponentWrap = styled.div`
+
+
+`
+
 class ImageComponent extends Component {
   state = {
     viewImage: true,
@@ -48,7 +54,7 @@ class ImageComponent extends Component {
 
   render() {
     return (
-      <div>
+      <ImageComponentWrap>
         {this.state.viewImage ? (
           <ViewImage
             image={this.props.image}
@@ -70,7 +76,7 @@ class ImageComponent extends Component {
             toggleDeleteCard={this.toggleDeleteCard}
           />
         ) : null}
-      </div>
+      </ImageComponentWrap>
     );
   }
 }
