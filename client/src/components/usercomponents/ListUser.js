@@ -3,12 +3,12 @@ import styled from "styled-components";
 import UserComponent from "./UserComponent";
 
 const ListWrap = styled.div`
-margin-top: 5vw;
-margin-bottom: 5vw;
-width: 100%;
-height: auto;
-display: flex;
-overflow: auto;
+  margin-top: 5vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: auto;
+  
 `;
 
 class ListUser extends Component {
@@ -18,10 +18,12 @@ class ListUser extends Component {
         {this.props.users.map((user, i) => {
           return (
             <UserComponent
+              {...this.props}
+              user={this.props.users[i]}
               key={user.id}
               index={i}
-              userId={user.id}
-              id={user.username}
+              handleChange={this.props.handleChange}
+              updateUser={this.props.updateUser}
               users={this.props.users}
               getAllUsers={this.props.getAllUsers}
             />

@@ -78,7 +78,7 @@ const DeleteWrapper = styled.div`
 
 class DeleteUser extends Component {
   render() {
-    const user = this.props.users[this.props.index];
+    const user = this.props.user;
     return (
 
 

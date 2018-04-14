@@ -12,8 +12,10 @@ const ImageWrap = styled.div`
     height: auto;
   }
   button {
-      top: 8px;
-      left: 21vw;
+      top: 0;
+      left: 0;
+      width: 28vw;
+      height: 28vw;
       border: none;
       text-shadow: 1px 1px lightgreen;
       background: transparent;
@@ -29,11 +31,11 @@ const ImageWrap = styled.div`
 
 class ViewUser extends Component {
     render() {
-        const user = this.props.users[this.props.index]
+        const user = this.props.user
         return (
             <ImageWrap>
                 <img src={user.image} alt={user.username}/>
-                <button onClick={this.props.toggleUserView}>View</button>
+                <button onClick={this.props.toggleUserView}></button>
             </ImageWrap>
         );
     }

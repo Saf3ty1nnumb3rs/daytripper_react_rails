@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DestinationComponent from "./DestinationComponent";
+import DestinationPicLink from "./DestinationPicLink";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -17,7 +17,7 @@ class ListDestination extends Component {
         {this.props.destinations.map((dest, i) => {
           return (
             <Link key={i} to={`/api/destinations/${dest.id}`}>
-              <DestinationComponent
+              <DestinationPicLink
                 key={dest.id}
                 index={i}
                 destinationId={dest.id}

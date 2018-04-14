@@ -4,18 +4,31 @@ import ViewUser from "./ViewUser";
 import UserCard from "./UserCard";
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
-import axios from 'axios'
+import axios from "axios";
 
 const UserWrap = styled.div``;
 
 class UserComponent extends Component {
   state = {
+    user: {},
+    newUser: {},
     viewUser: true,
     cardView: false,
     editView: false,
     deleteView: false
   };
-  //async await??????
+
+  componentDidMount() {
+    this.setState({ user: this.props.user });
+    this.getSingleUser();
+  }
+
+  getSingleUser = async () => {
+    const userId = this.props.user.id;
+    const res = await axios.get(`/api/users/${userId}`);
+    this.setState({ newUser: res.data });
+  };
+  //async await?????? Yes. Async await.
   toggleUserView = async () => {
     await this.setState({ viewUser: !this.state.viewUser });
     this.state.viewUser
@@ -30,48 +43,42 @@ class UserComponent extends Component {
           editView: false
         });
   };
+
+  //Toggle the edit form-----------------------//
   toggleEditView = async () => {
+      
     await this.setState({ editView: !this.state.editView });
     this.state.editView
       ? this.setState({ cardView: false, deleteView: false })
       : this.setState({ cardView: true, deleteView: false });
   };
-
+  //Toggle the delete card-----------------------//
   toggleDeleteView = async () => {
     await this.setState({ deleteView: !this.state.deleteView });
     this.state.deleteView
       ? this.setState({ cardView: false, editView: false })
       : this.setState({ cardView: true, editView: false });
   };
-
+  
+  // Delete Single User --------------------------//
   deleteUser = async user => {
-      await axios.delete(`/api/users/${this.props.userId}`)
-      await this.props.getAllUsers()
-  }
+    await axios.delete(`/api/users/${this.props.userId}`);
+    await this.props.getAllUsers();
+  };
 
   render() {
     return (
       <UserWrap>
         {this.state.viewUser ? (
           <ViewUser
-            index={this.props.index}
-            userId={this.props.userId}
-            id={this.props.id}
-            users={this.props.users}
+            user={this.props.user}
             toggleUserView={this.toggleUserView}
           />
         ) : null}
 
         {this.state.cardView ? (
           <UserCard
-            index={this.props.index}
-            userId={this.props.userId}
-            id={this.props.id}
-            users={this.props.users}
-            viewUser={this.state.viewUser}
-            cardView={this.state.cardView}
-            editView={this.state.editView}
-            deleteView={this.state.deleteView}
+            user={this.props.user}
             toggleUserView={this.toggleUserView}
             toggleEditView={this.toggleEditView}
             toggleDeleteView={this.toggleDeleteView}
@@ -80,24 +87,20 @@ class UserComponent extends Component {
 
         {this.state.editView ? (
           <EditUser
-            index={this.props.index}
-            userId={this.props.userId}
-            id={this.props.id}
+            user={this.props.user}
             users={this.props.users}
+            index={this.props.index}
             toggleUserView={this.toggleUserView}
             toggleEditView={this.toggleEditView}
             toggleDeleteView={this.toggleDeleteView}
-            viewUser={this.state.viewUser}
-            cardView={this.state.cardView}
-            editView={this.state.editView}
-            deleteView={this.state.deleteView}
+            handleChange={this.props.handleChange}
+            updateUser={this.props.updateUser}
           />
         ) : null}
 
         {this.state.deleteView ? (
           <DeleteUser
-            index={this.props.index}
-            users={this.props.users}
+            user={this.state.user}
             deleteUser={this.deleteUser}
             toggleUserView={this.toggleUserView}
             toggleDeleteView={this.toggleDeleteView}

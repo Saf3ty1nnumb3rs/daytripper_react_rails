@@ -6,7 +6,10 @@ import "./App.css";
 
 import LandingView from "./components/universalcomponents/LandingView";
 import IndexView from "./components/universalcomponents/IndexView";
-import DestinationPage from "./components/destinationcomponents/DestinationPage"
+import DestinationPage from "./components/destinationcomponents/DestinationPage";
+
+
+
 injectGlobal`
 *, :after, :before {
   box-sizing: inherit;
@@ -17,7 +20,11 @@ html, body {
 }
 `;
 
+
+
+
 class App extends Component {
+
   state = {
     users: [],
     destinations: [],
@@ -31,25 +38,33 @@ class App extends Component {
     this.getAllDestinations();
   }
 
-  getAllUsers = async () => {
-    try {
-      const res = await axios.get("/api/users");
-      console.log(res.data);
-      this.setState({
-        users: res.data.users
-      });
-    } catch (err) {
-      console.log(err);
-      this.setState({
-        error1: err.message
-      });
-    }
+  handleChange = (event, id) => {
+    const name = event.target.name;
+    console.log(event.target.name);
+    console.log(event.target);
+    const newState = [...this.state.users];
+    console.log(newState);
+
+    const userToChange = newState.find(user => user.id === id);
+    console.log(userToChange);
+    userToChange[name] = event.target.value;
+    this.setState({ users: newState });
   };
 
-  getAllDestinations = async () => {
+  updateUser = async user => {
+    //   const newUser =this.state.users.find(dog => dog.id === user)
+    const userId = user.id;
+    await axios.patch(`/api/users/${userId}`, user);
+
+    console.log("We all in here");
+    await (res => {
+      this.getAllUsers();
+    });
+  };
+
+  getAllDestinations = async props => {
     try {
       const res = await axios.get("/api/destinations");
-      console.log(res.data);
       this.setState({
         destinations: res.data.destinations
       });
@@ -57,6 +72,21 @@ class App extends Component {
       console.log(err);
       this.setState({
         error2: err.message
+      });
+    }
+  };
+
+  getAllUsers = async () => {
+    try {
+      const res = await axios.get("/api/users");
+
+      this.setState({
+        users: res.data.users
+      });
+    } catch (err) {
+      console.log(err);
+      this.setState({
+        error1: err.message
       });
     }
   };
@@ -71,6 +101,8 @@ class App extends Component {
           getAllDestinations={this.getAllDestinations}
           getAllUsers={this.getAllUsers}
           users={this.state.users}
+          updateUser={this.updateUser}
+          handleChange={this.handleChange}
           destinations={this.state.destinations}
           showLogin={this.state.showLogin}
           {...props}
@@ -78,9 +110,18 @@ class App extends Component {
       );
     };
     const DestinationWrapper = props => {
-      return <DestinationPage destinations={this.state.destinations} {...props} />
-
-    }
+      return (
+        <DestinationPage
+          users={this.state.users}
+          getAllDestinations={this.getAllDestinations}
+          getAllUsers={this.getAllUsers}
+          updateUser={this.updateUser}
+          handleChange={this.handleChange}
+          destinations={this.state.destinations}
+          {...props}
+        />
+      );
+    };
 
     return (
       <Router>

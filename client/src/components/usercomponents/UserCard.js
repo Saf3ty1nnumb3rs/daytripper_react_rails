@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-
 const CardWrap = styled.div`
   width: 28vw;
   height: 28vw;
@@ -13,28 +12,41 @@ const CardWrap = styled.div`
     opacity: 0.2;
     z-index: 0;
   }
-  button.view {
-    top: 10px;
-    left: 20vw;
-    border: none;
-    text-shadow: 1px 1px lightgreen;
-    background: transparent;
-    position: absolute;
-    z-index: 1000;
-    
-  }
-  
+
   .buttons {
     display: flex;
+    width: 28vw;
+    margin-left: 0;
+    padding: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1000;
+
     .delete {
+      padding: 0;
       color: white;
       border: none;
+      width: 9.33vw;
+      height: 30px;
       background-color: #f44336;
     }
     .edit {
+      border-top-left-radius: 4px;
+      padding: 0;
       color: white;
       border: none;
+      width: 9.33vw;
+      height: 30px;
       background-color: #008cba;
+    }
+    .view {
+      border-top-right-radius: 8px;
+      padding: 0;
+      color: white;
+      border: none;
+      width: 9.33vw;
+      height: 30px;
+      background-color: lightgreen;
     }
   }
   .text {
@@ -43,90 +55,38 @@ const CardWrap = styled.div`
     z-index: 100;
     position: absolute;
     top: 5px;
-    left: 5px;
-    button {
-      margin: 2px;
-      height: 4vw;
-      width: 8vw;
-      border-radius: 5px;
-      box-shadow: 1px 2px 3px black;
-    }
-  }
-  @media (min-width: 438px) {
-    .buttons button {
-      height: 5vw;
-      width: 10vw;
-    }
-  }
-  @media (min-width: 738px) {
-    .buttons button {
-      height: 4vw;
-      width: 8vw;
-    }
-  }
-  @media (min-width: 945px) {
-    .buttons button {
-      height: 3vw;
-      width: 6vw;
-    }
-  }
-  @media (max-width: 438px) {
-    .buttons button {
-      font-size: 7px;
-    }
-    button.view {
-        left: 15vw;
-  }
-  }
- 
-    
-  @media (max-width: 945px) {
-    .buttons {
-      display: block;
-    }
   }
 `;
 
-
 class UserCard extends Component {
-  
-
-  
-
   render() {
-    const user = this.props.users[this.props.index];
+    const user = this.props.user;
 
     return (
-      
-       
-          <CardWrap>
+      <CardWrap>
+        <div className="text">
+          <p>{user.username}</p>
+          <p>location:{user.location}</p>
+        </div>
+        <div className="buttons">
+          <div>
+            <button className="edit" onClick={this.props.toggleEditView}>
+              Edit
+            </button>
+          </div>
+          <div>
+            <button className="delete" onClick={this.props.toggleDeleteView}>
+              Delete
+            </button>
+          </div>
+          <div>
             <button className="view" onClick={this.props.toggleUserView}>
               View
             </button>
-            <div className="text">
-              <p>{user.username}</p>
-              <p>location:{user.location}</p>
-              <div className="buttons">
-                <div>
-                  <button className="edit" onClick={this.props.toggleEditView}>
-                    Edit
-                  </button>
-                </div>
-                <div>
-                  <button className="delete" onClick={this.props.toggleDeleteView}>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src={user.image} alt={user.username} />
-          </CardWrap>
-       
-
-        
-
-        
-     
+          </div>
+        </div>
+        <img src={user.image} alt={user.username} />
+      </CardWrap>
     );
   }
 }

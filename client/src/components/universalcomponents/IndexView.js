@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Navbar from "./Navbar";
 import ListUser from "../usercomponents/ListUser";
 import ListDestination from "../destinationcomponents/ListDestination";
-import Footer from './Footer'
 import styled from "styled-components";
 
 
@@ -14,26 +13,30 @@ const IndexWrap = styled.div`
     left: 0;
     z-index: 1000;
   }
-  .footer {
+  .bottom-list {
     left: 0;
-    bottom: 0;
+    bottom: -300px;
   }
 `;
 
-class IndexView extends Component {
+class IndexView extends Component { 
+
   render() {
     return (
       <IndexWrap>
-        <Navbar className='nav'{...this.props} />
+        <Navbar className="nav" {...this.props} />
         <ListDestination
           destinations={this.props.destinations}
           getAllDestinations={this.props.getAllDestinations}
         />
         <ListUser
+          {...this.props}
+          className="bottom-list"
           users={this.props.users}
           getAllUsers={this.props.getAllUsers}
+          updateUser={this.props.updateUser}
+          handleChange={this.props.handleChange}
         />
-        <Footer className='footer' {...this.props} />
       </IndexWrap>
     );
   }
