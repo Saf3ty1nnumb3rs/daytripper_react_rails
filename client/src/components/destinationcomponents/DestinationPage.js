@@ -29,6 +29,7 @@ class DestinationPage extends Component {
           getAllDestinations={this.props.getAllDestinations}
         />
         <DestinationComponent
+          {...this.props}
           destinations={this.props.destinations}
           getAllDestinations={this.props.getAllDestinations}
         />

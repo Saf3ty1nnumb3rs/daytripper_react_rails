@@ -112,13 +112,14 @@ class App extends Component {
     const DestinationWrapper = props => {
       return (
         <DestinationPage
+          {...props}
           users={this.state.users}
           getAllDestinations={this.getAllDestinations}
           getAllUsers={this.getAllUsers}
           updateUser={this.updateUser}
           handleChange={this.handleChange}
           destinations={this.state.destinations}
-          {...props}
+          
         />
       );
     };

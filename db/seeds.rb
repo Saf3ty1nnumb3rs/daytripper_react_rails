@@ -13,6 +13,7 @@ Post.destroy_all
 Image.destroy_all
 Destination.destroy_all
 
+tyler = User.create!(username: 'T-Pain', image: 'https://files.slack.com/files-pri/T0351JZQ0-FA60SC97X/screen_shot_2018-02-20_at_12.54.22_pm.png', email: 'dopest@snailmail.com' , location: 'The top, bitch!')
 cricket = User.create!(username: 'Cricket', image: 'https://files.slack.com/files-tmb/T0351JZQ0-FA6MC4T7Y-9e13997841/image_uploaded_from_ios_1024.jpg', email: 'cricketmcgillicuddy@aol.com', location: 'Will\'s mom\'s house' )
 sj = User.create!(username: 'Sweety', image: 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fscontent-iad3-1.xx.fbcdn.net%2Fv%2Ft1.0-9%2F30571400_10155535695339150_9020289133943193600_n.jpg%3F_nc_cat%3D0%26oh%3D6a39ddd3d0b98bb0e961a6d88f792c7f%26oe%3D5B719ED2' , email: 'sjk@gmail.com', location: 'ATL!!!')
 owen = User.create!(username: 'Owen', image: 'https://www.drummercafe.com/media/com_mtree/images/listings/m/271.jpg', email: 'owen@drumgod.com' , location: 'Mercedes Benz Stadium')

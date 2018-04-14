@@ -16,7 +16,7 @@ class ListDestination extends Component {
       <ListWrap>
         {this.props.destinations.map((dest, i) => {
           return (
-            <Link key={i} to={`/api/destinations/${dest.id}`}>
+            <Link key={i} to={`/destinations/${dest.id}`}>
               <DestinationPicLink
                 key={dest.id}
                 index={i}
