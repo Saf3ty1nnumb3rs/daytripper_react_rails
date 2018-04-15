@@ -19,6 +19,12 @@ html, body {
   margin: 0;
   background-color: darkgray;
 }
+#footer {
+  position: absolute;
+  botoom: 0;
+  right: 0;
+  left: 0;
+}
 `;
 
 

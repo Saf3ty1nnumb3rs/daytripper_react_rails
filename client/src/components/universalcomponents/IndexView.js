@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import ListUser from "../usercomponents/ListUser";
 import ListDestination from "../destinationcomponents/ListDestination";
 import AddDestination from '../destinationcomponents/AddDestination'
+import Footer from './Footer'
 import styled from "styled-components";
 
 const IndexWrap = styled.div`
@@ -50,6 +51,7 @@ class IndexView extends Component {
           updateUser={this.props.updateUser}
           handleChange={this.props.handleChange}
         />
+        <Footer />
       </IndexWrap>
     );
   }

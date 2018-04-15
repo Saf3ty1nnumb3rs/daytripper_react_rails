@@ -8,6 +8,7 @@ const ListWrap = styled.div`
   height: auto;
   display: flex;
   overflow: auto;
+  position: relative;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   
 `;

@@ -7,6 +7,8 @@ import styled from "styled-components";
 import axios from "axios";
 import ListImage from "../imagecomponents/ListImage";
 import ListPost from "../postcomponents/ListPost";
+import Footer from '../universalcomponents/Footer'
+
 
 const DestinationWrap = styled.div`
   .nav {
@@ -128,6 +130,7 @@ class DestinationPage extends Component {
           updateUser={this.props.updateUser}
           handleChange={this.props.handleChange}
         />
+        <Footer />
       </DestinationWrap>
     );
   }
