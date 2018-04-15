@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ViewDestination from "./ViewDestination";
 import EditDestination from "./EditDestination";
 import DeleteDestination from "./DeleteDestination";
+import axios from 'axios'
 
 const DestinationWrap = styled.div`
   width: 63vw;
@@ -17,7 +18,8 @@ class DestinationComponent extends Component {
   state = {
     viewDest: true,
     deleteDest: false,
-    editDest: false
+    editDest: false,
+    error: ''
   };
   toggleEdit = async () => {
     await this.setState({ editDest: !this.state.editDest });
@@ -39,6 +41,16 @@ class DestinationComponent extends Component {
       editDest: false
     });
   };
+  removeDestination = async destination => {
+    try {
+      await axios.delete(`/api/destinations/${this.props.destId}`)
+      this.props.getAllDestinations()
+      this.props.history.push('/destinations')
+    }catch(err) {
+      console.log(err)
+      this.setState( { error: err.message} )
+    }
+  }
 
   render() {
     const destination = this.props.match.params.id;
@@ -62,6 +74,8 @@ class DestinationComponent extends Component {
             getSingleDestination={this.props.getSingleDestination}
             toggleDelete={this.toggleDelete}
             toggleDestView={this.toggleDestView}
+            handleChange={this.props.handleChange}
+            updateDestination={this.props.updateDestination}
           />
         ) : null}
         {this.state.deleteDest ? (
@@ -72,6 +86,7 @@ class DestinationComponent extends Component {
             getAllDestinations={this.props.getAllDestinations}
             toggleEdit={this.toggleEdit}
             toggleDestView={this.toggleDestView}
+            removeDestination={this.removeDestination}
           />
         ) : null}
       </DestinationWrap>

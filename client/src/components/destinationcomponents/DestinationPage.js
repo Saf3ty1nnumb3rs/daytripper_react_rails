@@ -36,7 +36,9 @@ class DestinationPage extends Component {
   state = {
     destination: {},
     images: [],
-    posts: []
+    posts: [],
+    error1: "",
+    error2: ""
   };
 
   componentWillReceiveProps(nextProps) {
@@ -45,15 +47,44 @@ class DestinationPage extends Component {
   }
 
   getSingleDestination = async destinationId => {
-    const res = await axios.get(`/api/destinations/${destinationId}`);
-    console.log(res.data);
-    this.setState({
-      destination: res.data.destination,
-      images: res.data.images,
-      posts: res.data.posts
-    });
+    try {
+      const res = await axios.get(`/api/destinations/${destinationId}`);
+      console.log(res.data);
+       await this.setState({
+        destination: res.data.destination,
+        images: res.data.images,
+        posts: res.data.posts
+      });
+    } catch (err) {
+      console.log(err);
+      this.setState({ error1: err.message });
+    }
   };
+  //Destination edit functions/////////////////////////
+  //handleChange
+  handleChange = (event, id) => {
+    const name = event.target.name;
+    const newState = { ...this.state.destination };
+    console.log(newState);
+    newState[name] = event.target.value;
+    this.setState({ destination: newState });
+  };
+  //updateDestination
+  updateDestination = async destination => {
+    try {
+      await axios.patch(`/api/destinations/${destination.id}`, destination);
 
+      console.log("Destination updated");
+      await (res => {
+        this.props.getAllDestinations();
+      });
+    } catch (err) {
+      console.log(err);
+      this.setState({
+        error2: err.message
+      });
+    }
+  };
   render() {
     const destination = this.props.match.params.id;
     return (
@@ -70,6 +101,8 @@ class DestinationPage extends Component {
             destination={this.state.destination}
             destinations={this.props.destinations}
             getAllDestinations={this.props.getAllDestinations}
+            updateDestination={this.updateDestination}
+            handleChange={this.handleChange}
           />
           <ListPost
             destination={this.state.destination}

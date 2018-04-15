@@ -34,11 +34,13 @@ const ButtonWrap = styled.div`
   }
   button:first-child {
     border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
   }
   button:nth-child(2) {
     border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: #ff3100;
+    color: white;
   }
 `;
 
@@ -46,15 +48,30 @@ const TextWrap = styled.div`
   width: 24vw;
   margin: 2vw auto;
   position: relative;
-  p:first-child {
-    font-size: 2.5vw;
-  }
-  p:nth-child(2) {
+  form {
+    button {
+    font-size: 1.3vw;
+    width: 5vw;
+    border-radius: 4px;
+  } 
+    .inputs {
     font-size: 1.5vw;
+    margin: 10% auto;
+    width: 80%;
+    height: 2.4vw;
+    border: none;
+    border-bottom: 1px solid black;
+  }
   }
 `;
 
 class EditDestination extends Component {
+
+    handleDestChange = event => {
+        console.log(this.props.destination)
+        this.props.handleChange(event, this.props.destination.id);
+      };
+
   render() {
     const destination = this.props.destination;
     return (
@@ -63,8 +80,46 @@ class EditDestination extends Component {
           <img src={destination.image} alt={destination.title} />
         </ImageWrap>
         <TextWrap>
-          <p>{destination.title}</p>
-          <p>{destination.description}</p>
+            Edit {destination.title}
+          <form onSubmit={this.props.handleSubmit}>
+            <div>
+              <input
+                className="inputs"
+                name="title"
+                value={destination.title}
+                type="text"
+                onChange={this.handleDestChange}
+                onBlur={() =>
+                  this.props.updateDestination(this.props.destination)
+                }
+              />
+            </div>
+            <div>
+              <input
+                className="inputs"
+                name="image"
+                value={destination.image}
+                type="text"
+                onChange={this.handleDestChange}
+                onBlur={() =>
+                  this.props.updateDestination(this.props.destination)
+                }
+              />
+            </div>
+            <div>
+              <input
+                className="inputs"
+                name="location"
+                value={destination.description}
+                type="text"
+                onChange={this.handleDestChange}
+                onBlur={() =>
+                  this.props.updateDestination(this.props.destination)
+                }
+              />
+            </div>
+            <button onClick={this.props.toggleDestView}>Edit</button>
+          </form>
           <ButtonWrap>
             <button onClick={this.props.toggleDestView}>Back</button>
             <button onClick={this.props.toggleDelete}>Delete</button>
