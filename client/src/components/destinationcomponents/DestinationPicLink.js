@@ -6,7 +6,7 @@ width: 20vw;
 height: 20vw;
 overflow: hidden;
 img {
-    width: 30vw;
+    width: 32vw;
     height: auto;
 }
 `

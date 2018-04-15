@@ -122,8 +122,7 @@ class AddDestination extends Component {
   }
   render() {
       if(this.state.redirect){
-          console.log(`/destinations/${this.props.destinations[0].id}`)
-        //   return(<Redirect to={`/destinations`}>)
+          return(<Redirect to={`/destinations/${this.props.destinations[0].id}`} />)
       }
     const destination = this.state.newDestination;
     return (

@@ -53,31 +53,45 @@ class AddImage extends Component {
     newImage: {
       image: "",
       description: ""
-    }
+    },
+    err: ""
   };
 
+  
   handleChange = event => {
     event.preventDefault();
+
     const name = event.target.name;
     const newImage = { ...this.state.newImage };
     newImage[name] = event.target.value;
     this.setState({ newImage: newImage });
+    
+    
   };
+
 
   addImage = async event => {
     event.preventDefault();
+    event.target.reset()
+    
     const payload = {
       image: {
         image: this.state.newImage.image,
         description: this.state.newImage.description
       }
     };
-    console.log(this.params);
-    await axios.post(`/api/destinations/${this.props.destId}/images`, payload);
-
-    await this.props.getSingleDestination(this.props.destId);
-    this.setState({ newImage: { image: "", description: "" } });
-  };
+    try {
+      console.log(this.params);
+      await axios.post(`/api/destinations/${this.props.destId}/images`, payload);
+  
+      await this.props.getSingleDestination(this.props.destId);
+      this.setState({ newImage: { image: "", description: "" } });
+    }catch(err){
+      console.log(err)
+      this.setState( { err: err.message } )
+    };
+    }
+   
 
   render() {
     return (
