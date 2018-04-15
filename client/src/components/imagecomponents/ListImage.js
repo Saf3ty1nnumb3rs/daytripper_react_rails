@@ -8,7 +8,7 @@ const ListWrap = styled.div`
   width: 28vw;
   overflow: auto;
   position: relative;
-  margin-right: 22px;
+  margin-right: 2.5vw;
   margin-left: auto;
   display: block;
   border: 2px solid lightgray;

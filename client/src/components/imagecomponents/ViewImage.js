@@ -8,7 +8,7 @@ const ImageWrap = styled.div`
   overflow: hidden;
   position: relative;
   img {
-    width: 37vw;
+    width: 40vw;
     height: auto;
   }
   button {

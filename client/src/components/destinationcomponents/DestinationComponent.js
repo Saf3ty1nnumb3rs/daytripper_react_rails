@@ -1,37 +1,42 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import ListImage from "../imagecomponents/ListImage";
-import ViewDestination from './ViewDestination'
+import ViewDestination from "./ViewDestination";
+import EditDestination from "./EditDestination";
+import DeleteDestination from "./DeleteDestination";
 
-const DestinationWrap = styled.div``;
-const ElementContainer = styled.div`
-  height:80vw;
-  margin-top: 100px;
-  margin-bottom: 50px;
-`
-
-
+const DestinationWrap = styled.div`
+  width: 63vw;
+  height: 38vw;
+  margin-left: 2vw;
+  background-color: white;
+  position: absolute;
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
+`;
 
 class DestinationComponent extends Component {
   state = {
-    destination: {},
-    images: [],
-    posts: []
+    viewDest: true,
+    deleteDest: false,
+    editDest: false
+  };
+  toggleEdit = async () => {
+    await this.setState({ editDest: !this.state.editDest });
+    this.state.editDest
+      ? await this.setState({ viewDest: false, deleteDest: false })
+      : await this.setState({ viewDest: true, deleteDest: false });
+  };
+  toggleDelete = async () => {
+    await this.setState({ deleteDest: !this.state.deleteDest });
+    this.state.deleteDest
+      ? await this.setState({ viewDest: false, editDest: false })
+      : await this.setState({ viewDest: true, editDest: false });
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps !== this.props)
-      this.getSingleDestination(this.props.match.params.id);
-  }
-
-  getSingleDestination = async destinationId => {
-    const res = await axios.get(`/api/destinations/${destinationId}`);
-    console.log(res.data);
+  toggleDestView = () => {
     this.setState({
-      destination: res.data.destination,
-      images: res.data.images,
-      posts: res.data.posts
+      viewDest: true,
+      deleteDest: false,
+      editDest: false
     });
   };
 
@@ -39,20 +44,36 @@ class DestinationComponent extends Component {
     const destination = this.props.match.params.id;
     return (
       <DestinationWrap>
-
-        <ViewDestination />
-
-
-
-
-        <ElementContainer>
-          <ListImage
-            destination={this.state.destination}
+        {this.state.viewDest ? (
+          <ViewDestination
+          {...this.props}
+            destination={this.props.destination}
             destId={destination}
-            images={this.state.images}
-            getSingleDestination={this.getSingleDestination}
+            getSingleDestination={this.props.getSingleDestination}
+            toggleEdit={this.toggleEdit}
+            toggleDelete={this.toggleDelete}
           />
-        </ElementContainer>
+        ) : null}
+        {this.state.editDest ? (
+          <EditDestination
+          {...this.props}
+            destination={this.props.destination}
+            destId={destination}
+            getSingleDestination={this.props.getSingleDestination}
+            toggleDelete={this.toggleDelete}
+            toggleDestView={this.toggleDestView}
+          />
+        ) : null}
+        {this.state.deleteDest ? (
+          <DeleteDestination
+          {...this.props}
+            destination={this.props.destination}
+            destId={destination}
+            getAllDestinations={this.props.getAllDestinations}
+            toggleEdit={this.toggleEdit}
+            toggleDestView={this.toggleDestView}
+          />
+        ) : null}
       </DestinationWrap>
     );
   }

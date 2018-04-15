@@ -7,7 +7,7 @@ const DeleteWrapper = styled.div`
   overflow: hidden;
   position: relative;
   img {
-    width: 37vw;
+    width: 40vw;
     height: auto;
     opacity: 0.2;
     z-index: 0;
@@ -21,13 +21,16 @@ const DeleteWrapper = styled.div`
     bottom: 0;
     position: absolute;
     z-index: 1000;
+    button {
+      font-size: 2vw;
+    }
 
     .delete {
       padding: 0;
       color: white;
       border: none;
       width: 14vw;
-      height: 30px;
+      height: 3vw;
       background-color: #f44336;
       border-top-right-radius: 8px;
     }
@@ -37,7 +40,7 @@ const DeleteWrapper = styled.div`
       color: white;
       border: none;
       width: 14vw;
-      height: 30px;
+      height: 3vw;
       background-color: #008cba;
     }
   }

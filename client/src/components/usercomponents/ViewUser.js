@@ -22,11 +22,6 @@ const ImageWrap = styled.div`
       position: absolute;
       
   }
-  @media (max-width: 438px) {
-      button{
-        left: 15vw;
-  }
-}
 `;
 
 class ViewUser extends Component {
