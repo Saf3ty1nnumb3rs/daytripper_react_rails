@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const CardWrap = styled.div`
-  width: 24vw;
-  height: 24vw;
+  width: 28vw;
+  height: 28vw;
   overflow: hidden;
   position: relative;
   img {
@@ -15,7 +15,7 @@ const CardWrap = styled.div`
 
   .buttons {
     display: flex;
-    width: 24vw;
+    width: 28vw;
     margin-left: 0;
     padding: 0;
     bottom: 0;
@@ -25,7 +25,7 @@ const CardWrap = styled.div`
       padding: 0;
       color: white;
       border: none;
-      width: 12vw;
+      width: 14vw;
       height: 30px;
       background-color: #f44336;
       border-top-left-radius: 8px;
@@ -35,7 +35,7 @@ const CardWrap = styled.div`
       padding: 0;
       color: white;
       border: none;
-      width: 12vw;
+      width: 14vw;
       height: 30px;
       background-color: lightgreen;
     }

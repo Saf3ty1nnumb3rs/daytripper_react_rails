@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 
 const ImageWrap = styled.div`
-  width: 24vw;
-  height: 24vw;
+  width: 28vw;
+  height: 28vw;
   overflow: hidden;
   position: relative;
   img {
@@ -14,18 +14,14 @@ const ImageWrap = styled.div`
   button {
       top: 0;
       left: 0;
-      width: 24vw;
-      height: 24vw;
+      width: 28vw;
+      height: 28vw;
       border: none;
       background: transparent;
       position: absolute;
       
   }
-  @media (max-width: 438px) {
-      button{
-        left: 15vw;
-  }
-}
+  
 `;
 
 class ViewImage extends Component {

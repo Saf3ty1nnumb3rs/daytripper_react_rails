@@ -17,6 +17,9 @@ before_action :def_image, only: [:show, :destroy]
     def create
         @destination = Destination.find(params[:destination_id])
         @image = @destination.images.create(image_params)
+        render json: {
+            image: @image
+        }
     end
 
     def destroy
@@ -30,7 +33,7 @@ before_action :def_image, only: [:show, :destroy]
     end
 
     def image_params
-        params.require(:image).permit(:image, :description, :destination_id)
+        params.require(:image).permit( :image, :description, :destination_id)
     end
 
 

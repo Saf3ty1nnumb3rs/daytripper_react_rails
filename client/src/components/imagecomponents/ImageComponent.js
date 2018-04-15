@@ -7,7 +7,7 @@ import ImageCard from "./ImageCard";
 
 
 const ImageComponentWrap = styled.div`
-
+  background-color: white;
 
 `
 
@@ -46,8 +46,9 @@ class ImageComponent extends Component {
   };
 
   deleteImage = async user => {
+    console.log('Deleting')
     await axios.delete(
-      `/api/${this.props.destId}/images/${this.props.image.id}`
+      `/api/destinations/${this.props.destId}/images/${this.props.image.id}`
     );
     await this.props.getSingleDestination(this.props.destId);
   };
@@ -71,7 +72,7 @@ class ImageComponent extends Component {
         {this.state.deleteImage ? (
           <DeleteImage
             image={this.props.image}
-            deleteImage={this.props.deleteImage}
+            deleteImage={this.deleteImage}
             destId={this.props.destId}
             toggleDeleteCard={this.toggleDeleteCard}
           />
