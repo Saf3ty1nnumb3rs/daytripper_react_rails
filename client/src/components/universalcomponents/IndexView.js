@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Navbar from "./Navbar";
 import ListUser from "../usercomponents/ListUser";
 import ListDestination from "../destinationcomponents/ListDestination";
+import AddDestination from '../destinationcomponents/AddDestination'
 import styled from "styled-components";
-
 
 const IndexWrap = styled.div`
   .nav {
@@ -17,9 +17,17 @@ const IndexWrap = styled.div`
     left: 0;
   }
 `;
+const ElementContainer = styled.div`
+  height: 80vw;
+  width: 100vw;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-right: 22px;
+  margin-left: auto;
+  position: relative;
+`;
 
-class IndexView extends Component { 
-
+class IndexView extends Component {
   render() {
     return (
       <IndexWrap>
@@ -28,6 +36,12 @@ class IndexView extends Component {
           destinations={this.props.destinations}
           getAllDestinations={this.props.getAllDestinations}
         />
+        <ElementContainer>
+          <AddDestination
+            destinations={this.props.destinations}
+            getAllDestinations={this.props.getAllDestinations}
+          />
+        </ElementContainer>
         <ListUser
           {...this.props}
           className="bottom-list"

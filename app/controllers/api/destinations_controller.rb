@@ -4,7 +4,7 @@ before_action :def_destination, only: [:show, :update, :destroy]
     def index
         @destinations = Destination.all
         render json: {
-            destinations: @destinations
+            destinations: @destinations.order(id: :desc)
         }
     end
 

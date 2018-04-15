@@ -43,7 +43,10 @@ class DestinationPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props)
-      this.getSingleDestination(this.props.match.params.id);
+      this.getSingleDestination(nextProps.match.params.id);
+  }
+  componentDidMount(){
+    this.getSingleDestination(this.props.match.params.id)
   }
 
   getSingleDestination = async destinationId => {

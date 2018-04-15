@@ -109,7 +109,7 @@ class EditDestination extends Component {
             <div>
               <input
                 className="inputs"
-                name="location"
+                name="description"
                 value={destination.description}
                 type="text"
                 onChange={this.handleDestChange}
