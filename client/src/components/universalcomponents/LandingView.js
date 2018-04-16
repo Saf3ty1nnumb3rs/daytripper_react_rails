@@ -49,12 +49,12 @@ class LandingView extends Component {
         {this.props.showSignUp ? (
           <SignUpUser
             toggleShowLogin={this.props.toggleSignUp}
-            showLogin={this.props.showSignUp}
+            showSignUp={this.props.showSignUp}
           />
         ) : (
           <LandingWrap>
             <ButtonWrap>
-              <button onClick={this.props.toggleSignUp}> SignUp</button>
+              <button onClick={() => this.props.toggleSignUp()}> SignUp</button>
             </ButtonWrap>
             <div className="letter-box">
               <p>

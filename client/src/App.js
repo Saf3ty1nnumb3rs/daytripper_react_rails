@@ -107,7 +107,7 @@ class App extends Component {
 
   render() {
     const LandingViewWrap = props => {
-      return <LandingView {...props} />;
+      return <LandingView {...props} showSignUp={this.state.showSignUp} toggleSignUp={this.toggleSignUp} />;
     };
     const IndexWrapper = props => {
       return (

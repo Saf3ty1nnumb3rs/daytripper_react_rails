@@ -4,7 +4,7 @@ import styled from "styled-components";
 const OverWrap = styled.div`
   background-image: url("https://media.bizj.us/view/img/3972271/skyline-of-atlanta*1024xx1600-900-0-1384.jpg");
   background-size: cover;
-  z-index: -9;
+  z-index: 1000;
   position: fixed;
   height: 100vh;
   width: 100vw;
