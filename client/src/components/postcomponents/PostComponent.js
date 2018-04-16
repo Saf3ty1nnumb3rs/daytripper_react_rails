@@ -55,6 +55,7 @@ class PostComponent extends Component {
 
   updatePost = async (post) => {
     try {
+
       const destId = this.props.destId;
       const postId = this.props.post.id;
 

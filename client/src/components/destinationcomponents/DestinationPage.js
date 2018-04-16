@@ -65,6 +65,7 @@ class DestinationPage extends Component {
       this.setState({ error1: err.message });
     }
   };
+  //////// Post Edit Handler/////////////////////////
   handlePostChange = (event, id) => {
     event.preventDefault();
     const name = event.target.name;
@@ -75,7 +76,7 @@ class DestinationPage extends Component {
 
   };
   //Destination edit functions/////////////////////////
-  //handleChange
+  //Destinatio handleChange
   handleChange = (event, id) => {
     const name = event.target.name;
     const newState = { ...this.state.destination };

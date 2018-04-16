@@ -39,7 +39,7 @@ class App extends Component {
   state = {
     users: [],
     destinations: [],
-    showLogin: false,
+    showSignUp: false,
     error1: "",
     error2: ""
   };
@@ -101,6 +101,9 @@ class App extends Component {
       });
     }
   };
+  toggleSignUp = () => {
+    this.setState( { showSignUp: !this.state.showSignUp} )
+}
 
   render() {
     const LandingViewWrap = props => {
@@ -109,6 +112,7 @@ class App extends Component {
     const IndexWrapper = props => {
       return (
         <IndexView
+          toggleSignUp={this.toggleSignUp}
           getAllDestinations={this.getAllDestinations}
           getAllUsers={this.getAllUsers}
           users={this.state.users}
@@ -124,6 +128,8 @@ class App extends Component {
       return (
         <DestinationPage
           {...props}
+          toggleSignUp={this.toggleSignUp}
+          showSignUp={this.props.toggleSignUp}
           users={this.state.users}
           getAllDestinations={this.getAllDestinations}
           getAllUsers={this.getAllUsers}

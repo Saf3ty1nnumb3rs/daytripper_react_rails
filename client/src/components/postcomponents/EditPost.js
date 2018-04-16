@@ -78,9 +78,8 @@ class EditPost extends Component {
           />
 
           <ButtonWrap>
-            <button type="submit">Edit</button>
-            <button onClick={()=>this.props.toggleEditPost()}>Back</button>
-            <button type="reset"> Cancel </button>
+            <button onClick={this.props.toggleEditPost}>Edit</button>
+            <button type="reset" onClick={this.props.toggleEditPost}> Cancel </button>
           </ButtonWrap>
         </form>
       </EditWrap>
