@@ -3,77 +3,7 @@ import styled from "styled-components";
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
-const AddWrap = styled.div`
-  width: 63vw;
-  height: 38vw;
-  margin-left: 2vw;
-  background-color: white;
-  position: absolute;
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
-`;
-const PositionWrap = styled.div`
-  width: 63vw;
-  height: 38vw;
-  display: flex;
-  position: relative;
-`;
-const ImageWrap = styled.div`
-  background-image: url('https://static1.squarespace.com/static/570f1d454c2f8553e926cdc5/5786c752e4fcb577ca60c8ac/57858672c534a5ef75f99241/1512145729751/Coast+Camp%2C+Pt.+Reyes.jpg?format=1000w');
-  background-size: cover;
-  width: 33vw;
-  height: 33vw;
-  margin-top: 1vw;
-  margin-left: 1vw;
-  overflow: hidden;
-  border-radius: 6px;
-  border: 1px solid black;
-  box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.8);
-`;
-const ButtonWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 15px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  button {
-    font-size: 1.3vw;
-    width: 5vw;
-  }
-  button:first-child {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  button:nth-child(2) {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background-color: #ff3100;
-    color: white;
-  }
-`;
 
-const TextWrap = styled.div`
-  width: 24vw;
-  margin: 2vw auto;
-  position: relative;
-  form {
-    button {
-      font-size: 1.3vw;
-      width: 5vw;
-      border-radius: 4px;
-    }
-    .inputs {
-      font-size: 1.5vw;
-      margin: 10% auto;
-      width: 80%;
-      height: 2.4vw;
-      border: none;
-      border-bottom: 1px solid black;
-    }
-  }
-`;
 
 class AddDestination extends Component {
   state = {
@@ -181,3 +111,75 @@ class AddDestination extends Component {
 }
 
 export default AddDestination;
+
+const AddWrap = styled.div`
+  width: 63vw;
+  height: 38vw;
+  margin-left: 2vw;
+  background-color: white;
+  position: absolute;
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
+`;
+const PositionWrap = styled.div`
+  width: 63vw;
+  height: 38vw;
+  display: flex;
+  position: relative;
+`;
+const ImageWrap = styled.div`
+  background-image: url('https://static1.squarespace.com/static/570f1d454c2f8553e926cdc5/5786c752e4fcb577ca60c8ac/57858672c534a5ef75f99241/1512145729751/Coast+Camp%2C+Pt.+Reyes.jpg?format=1000w');
+  background-size: cover;
+  width: 33vw;
+  height: 33vw;
+  margin-top: 1vw;
+  margin-left: 1vw;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid black;
+  box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.8);
+`;
+const ButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  button {
+    font-size: 1.3vw;
+    width: 5vw;
+  }
+  button:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  button:nth-child(2) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: #ff3100;
+    color: white;
+  }
+`;
+
+const TextWrap = styled.div`
+  width: 24vw;
+  margin: 2vw auto;
+  position: relative;
+  form {
+    button {
+      font-size: 1.3vw;
+      width: 5vw;
+      border-radius: 4px;
+    }
+    .inputs {
+      font-size: 1.5vw;
+      margin: 10% auto;
+      width: 80%;
+      height: 2.4vw;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+  }
+`;

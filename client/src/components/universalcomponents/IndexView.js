@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import ListUser from "../usercomponents/ListUser";
 import ListDestination from "../destinationcomponents/ListDestination";
 import AddDestination from '../destinationcomponents/AddDestination'
+import WeatherPanel from './WeatherPanel'
+import MapsComponent from './MapsComponent'
 import Footer from './Footer'
 import styled from "styled-components";
 
@@ -42,6 +44,8 @@ class IndexView extends Component {
             destinations={this.props.destinations}
             getAllDestinations={this.props.getAllDestinations}
           />
+          <MapsComponent />
+          <WeatherPanel />
         </ElementContainer>
         <ListUser
           {...this.props}

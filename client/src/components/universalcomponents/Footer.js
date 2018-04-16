@@ -14,9 +14,18 @@ const FootWrap = styled.div`
   right: 0;
   .logo {
     margin-left: 10vw;
+    font-family: "Anton", sans-serif;
+    font-size: 3vw;
+  }
+  .trip {
+    font-family: "Pacifico", cursive;
   }
   .info {
-      margin-right: 10vw;
+    display: flex;
+    justify-content: space-around;
+    width: 15vw;
+    margin-right: 10vw;
+    font-family: "Anton", sans-serif;
   }
 `;
 
@@ -24,7 +33,9 @@ class Footer extends Component {
   render() {
     return (
       <FootWrap id="footer">
-        <div className="logo">DAYTRIPPER</div>
+        <div className="logo">
+          DAY<span className="trip">TRIPPER</span>
+        </div>
         <div className="info">
           <div>Home</div>
           <div>About</div>

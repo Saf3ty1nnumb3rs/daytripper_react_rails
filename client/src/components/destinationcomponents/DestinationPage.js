@@ -103,7 +103,7 @@ class DestinationPage extends Component {
     const destination = this.props.match.params.id;
     return (
       <DestinationWrap>
-        <Navbar />
+        <Navbar {...this.props}/>
         <ListDestination
           destinations={this.props.destinations}
           getAllDestinations={this.props.getAllDestinations}
@@ -140,7 +140,7 @@ class DestinationPage extends Component {
           updateUser={this.props.updateUser}
           handleChange={this.props.handleChange}
         />
-        <Footer />
+        <Footer {...this.props}/>
       </DestinationWrap>
     );
   }

@@ -11,6 +11,10 @@ import DestinationPage from "./components/destinationcomponents/DestinationPage"
 
 
 injectGlobal`
+
+@import url('https://fonts.googleapis.com/css?family=Anton|Lobster|Pacifico');
+
+
 *, :after, :before {
   box-sizing: inherit;
 }
