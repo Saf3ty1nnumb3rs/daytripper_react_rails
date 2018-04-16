@@ -15,10 +15,11 @@ const FootWrap = styled.div`
   .logo {
     margin-left: 10vw;
     font-family: "Anton", sans-serif;
-    font-size: 3vw;
+    font-size: 2vw;
   }
   .trip {
-    font-family: "Pacifico", cursive;
+    font-family: "Lobster", cursive;
+    font-size: 3vw;
   }
   .info {
     display: flex;
