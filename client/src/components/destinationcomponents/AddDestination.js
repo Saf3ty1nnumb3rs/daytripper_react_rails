@@ -144,7 +144,7 @@ const ButtonWrap = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 15px;
+  bottom: 8px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   button {
@@ -173,6 +173,9 @@ const TextWrap = styled.div`
       width: 5vw;
       border-radius: 4px;
     }
+    p{
+      font-size: 1.2vw;
+      }
     .inputs {
       font-size: 1.5vw;
       margin: 10% auto;

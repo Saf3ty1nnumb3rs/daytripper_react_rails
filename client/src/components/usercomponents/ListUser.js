@@ -9,9 +9,8 @@ const ListWrap = styled.div`
   display: flex;
   overflow: auto;
   position: relative;
-  box-shadow: 2px 4px 6px 2px rgba(150, 150, 200, 0.8);
+  box-shadow: 1px 3px 6px 2px rgba(250, 250, 200, 0.8);
   z-index: 1000;
-  
 `;
 
 class ListUser extends Component {
@@ -23,6 +22,7 @@ class ListUser extends Component {
             <UserComponent
               {...this.props}
               user={this.props.users[i]}
+              userId={this.props.users[i].id}
               key={user.id}
               index={i}
               handleChange={this.props.handleChange}

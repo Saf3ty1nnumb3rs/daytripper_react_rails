@@ -22,6 +22,7 @@ html, body {
   height: 100%;
   margin: 0;
   background-color: darkgray;
+  font-family: "Anton", sans-serif;
 }
 #footer {
   position: absolute;
@@ -107,7 +108,7 @@ class App extends Component {
 
   render() {
     const LandingViewWrap = props => {
-      return <LandingView {...props} showSignUp={this.state.showSignUp} toggleSignUp={this.toggleSignUp} />;
+      return <LandingView {...props} showSignUp={this.state.showSignUp} toggleSignUp={this.toggleSignUp} getAllUsers={this.getAllUsers} />;
     };
     const IndexWrapper = props => {
       return (

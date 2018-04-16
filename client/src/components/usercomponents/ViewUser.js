@@ -7,6 +7,7 @@ const ImageWrap = styled.div`
   height: 28vw;
   overflow: hidden;
   position: relative;
+  background-color: white; 
   img {
     width: 32vw;
     height: auto;

@@ -67,6 +67,7 @@ class UserComponent extends Component {
         {this.state.cardView ? (
           <UserCard
             user={this.props.user}
+            userId={this.props.userId}
             toggleUserView={this.toggleUserView}
             toggleEditView={this.toggleEditView}
             toggleDeleteView={this.toggleDeleteView}
@@ -77,6 +78,7 @@ class UserComponent extends Component {
           <EditUser
             user={this.props.user}
             users={this.props.users}
+            userId={this.props.userId}
             index={this.props.index}
             toggleUserView={this.toggleUserView}
             toggleEditView={this.toggleEditView}
@@ -89,6 +91,7 @@ class UserComponent extends Component {
         {this.state.deleteView ? (
           <DeleteUser
             user={this.props.user}
+            userId={this.props.userId}
             deleteUser={this.deleteUser}
             toggleUserView={this.toggleUserView}
             toggleDeleteView={this.toggleDeleteView}
