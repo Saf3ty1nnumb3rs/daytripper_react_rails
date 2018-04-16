@@ -1,7 +1,9 @@
 ![Nature Pic!](https://img.etsystatic.com/il/076150/612692921/il_570xN.612692921_k4iy.jpg?version=2)
 
+# Daytrippr - WDI 14 Project 4
 
-# README
+### This is WDI 14 Project 4 Day trips! Crowd source the best day trip destinations from around where you live or from around where you'll be visiting. Post tips, comments, and travel hacks for your fellow Daytripprs. Add a snapshot that you took from the locale and find new spots to TRIP!
+
 
 * <a name="JoshLink" href="https://www.linkedin.com/in/joshsample/">
 Linked In</a>
