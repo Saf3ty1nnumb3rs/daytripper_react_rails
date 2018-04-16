@@ -65,6 +65,15 @@ class DestinationPage extends Component {
       this.setState({ error1: err.message });
     }
   };
+  handlePostChange = (event, id) => {
+    event.preventDefault();
+    const name = event.target.name;
+    const newState = [...this.state.posts];
+    const postToChange = newState.find(post => post.id === id);
+    postToChange[name] = event.target.value;
+    this.setState({ posts: newState });
+
+  };
   //Destination edit functions/////////////////////////
   //handleChange
   handleChange = (event, id) => {
@@ -110,6 +119,7 @@ class DestinationPage extends Component {
             handleChange={this.handleChange}
           />
           <ListPost
+            handlePostChange={this.handlePostChange}
             destination={this.state.destination}
             destId={destination}
             posts={this.state.posts}

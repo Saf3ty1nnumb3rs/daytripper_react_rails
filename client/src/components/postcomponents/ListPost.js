@@ -31,6 +31,7 @@ class ListPost extends Component {
               destination={this.props.destination}
               destId={this.props.destId}
               getSingleDestination={this.props.getSingleDestination}
+              handlePostChange={this.props.handlePostChange}
             />
           );
         })}

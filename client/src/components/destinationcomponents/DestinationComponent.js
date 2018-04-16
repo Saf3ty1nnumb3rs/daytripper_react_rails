@@ -48,7 +48,6 @@ class DestinationComponent extends Component {
       this.props.history.push('/destinations')
     }catch(err) {
       console.log(err)
-      this.setState( { error: err.message} )
     }
   }
 

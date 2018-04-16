@@ -6,7 +6,6 @@ const PostWrap = styled.div`
   height: 10vw;
   margin: 1vw 2vw;
   display: flex;
-  flex-co
   border: 1px solid rgba(0, 0, 0, 0.6);
   align-items: center;
   

@@ -24,9 +24,7 @@ before_action :def_post, only: [:show, :update, :destroy]
 
     def update
         @post.update!(post_params)
-        render json: {
-            post: @post
-        }
+        
 
     end
 

@@ -11,7 +11,8 @@ class PostComponent extends Component {
   state = {
     viewPost: true,
     editPost: false,
-    deletePost: false
+    deletePost: false,
+    err: ""
   };
 
   toggleViewPost = async () => {
@@ -51,34 +52,38 @@ class PostComponent extends Component {
           editPost: false
         });
   };
-  handlePostChange = async (event, id) => {
-    event.preventDefault();
-    const name = event.target.name;
-    console.log(event.target.name);
-    console.log(event.target);
-    const newState = [...this.state.posts];
-    console.log(newState);
-    const postToChange = newState.find(post => post.id === id);
-    console.log(postToChange);
-    postToChange[name] = event.target.value;
-    this.setState({ posts: newState });
+
+  updatePost = async (post) => {
+    try {
+      const destId = this.props.destId;
+      const postId = this.props.post.id;
+
+      await axios.patch(`/api/destinations/${destId}/posts/${postId}`, post);
+      await (res => {
+        this.props.getSingleDestination(destId);
+      });
+    } catch (err) {
+      console.log(err);
+      this.setState({ err: err.message });
+    }
   };
 
-  updatePost = async post => {
-    const destId = this.props.match.params.id;
-    await axios.patch(`/api/destinations/${destId}/posts/${post.id}`, post);
-    console.log(post);
-    await (res => {
-      this.getSingleDestination();
-    });
-  };
+  removePost = async() => {
+    try {
+        await axios.delete(`/api/destinations/${this.props.destId}/posts/${this.props.post.id}`)
+        this.props.getSingleDestination(this.props.destId)
+    }catch(err){
+        console.log(err)
+    }
+  }
 
   render() {
+    const post = this.props.post;
     return (
       <PostWrapper>
         {this.state.viewPost ? (
           <PostView
-            post={this.props.post}
+            post={post}
             toggleEditPost={this.toggleEditPost}
             toggleDeletePost={this.toggleDeletePost}
           />
@@ -86,13 +91,19 @@ class PostComponent extends Component {
 
         {this.state.editPost ? (
           <EditPost
+            post={post}
+            handlePostChange={this.props.handlePostChange}
             toggleDeletePost={this.toggleDeletePost}
             toggleViewPost={this.toggleViewPost}
+            updatePost={this.updatePost}
+            toggleEditPost={this.toggleEditPost}
           />
         ) : null}
 
         {this.state.deletePost ? (
           <DeletePost
+            post={post}
+            removePost={this.removePost}
             toggleEditPost={this.toggleEditPost}
             toggleViewPost={this.toggleViewPost}
           />
