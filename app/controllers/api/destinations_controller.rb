@@ -40,6 +40,39 @@ before_action :def_destination, only: [:show, :update, :destroy]
         @destination.destroy
     end
 
+    def search
+        @city = params[:city]
+        @state = params[:state]
+        @street_address = params[:streetAddress]
+        @zip = params[:zip].to_s
+
+        @location = @street_address + ' ' + @city + ' ,' + @state + ' ,' + @zip
+        
+        puts @location
+
+        @destinations = Destination.getDestinations(@location)
+
+
+        render json: {
+            destinations: @destinations,
+        }
+    end
+
+    def locate
+        @lat = params[:lat]
+        @long = params[:long]
+
+
+
+        @coord = @lat + ',' + @long
+
+        @destinations = Destination.locateDestinations(@coord)
+
+        render json: {
+            coffee_shops: @coffee_shops
+        }
+    end
+
 
     private
 
