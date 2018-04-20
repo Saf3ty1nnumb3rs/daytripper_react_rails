@@ -1,46 +1,63 @@
-import React, { Component } from 'react';
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "styled-components";
+import GoogleMap from "./GoogleMap";
+import Geocode from 'react-geocode'
+/*global google*/
 
 const MapWrap = styled.div`
-width: 63vw;
+  width: 63vw;
   height: 38vw;
   margin-left: 2vw;
   background-color: white;
   position: absolute;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   bottom: 0;
-`
-// const request = require('request');
 
-// request({
-//     url: 'https://api.foursquare.com/v2/venues/explore',
-//     method: 'GET',
-//     qs: {
-//       client_id: 'HOQB4O0YC21NAUFPJ5QJKXR1D025H1C40D3Q0HLRMLQWLEGZ',
-//       client_secret: 'MUSCQ5K2RBASWAUPXGPWHY451ZC50ESP435S4OZCHEKQSYOT',
-//       ll: '40.7243,-74.0018',
-//       query: 'coffee',
-//       v: '20180323',
-//       limit: 1
-//     }
-//   }, function(err, res, body) {
-//     if (err) {
-//       console.error(err);
-//     } else {
-//       console.log(res);
-//     }
-//   });
-  
+  #input {
+    position: absolute;
+    z-index: 100;
+    top: 5px;
+    left: 0;
+    right: 0;
+  }
+`;
 
 class MapsComponent extends Component {
-    render() {
-        return (
-            <MapWrap>
-                stuff
-                <button onClick={this.request}>Clicky</button>
-            </MapWrap>
-        );
+  state = {
+    lat: 33.749,
+    lng: -84.388,
+    address: ''
+  };
+
+  geocodeAddress = () => {
+      Geocode.setApiKey('AIzaSyAs0j5GYFUkufjW0McWQ4Auj5VD0K9EvtY')
+      Geocode.enableDebug()
+      Geocode.fromAddress(this.state.address).then(
+          response => {
+              const { lat, lng } = response.results[0].geometry.location
+              console.log(response.results)
+              console.log(lat, lng)
+          },
+          error => {
+              console.error(error)
+          }
+      )
     }
+
+  render() {
+    
+    return (
+      <MapWrap>
+        <div id="input">
+          <form onSubmit={this.geocodeAddress}>
+            <input id="address" ref="address" type="textbox" value="Address" />
+            <button id="submit" type="submit" value="Geocode" />
+          </form>
+        </div>
+        <GoogleMap lat={this.state.lat} lng={this.state.lng} refs={this.refs} />
+      </MapWrap>
+    );
+  }
 }
 
 export default MapsComponent;

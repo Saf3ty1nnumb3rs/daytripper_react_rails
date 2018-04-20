@@ -21,8 +21,12 @@ injectGlobal`
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   background-color: darkgray;
   font-family: "Anton", sans-serif;
+}
+#map {
+  height: 100%;
 }
 #footer {
   position: absolute;
