@@ -7,7 +7,7 @@ class GoogleMap extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-     
+     console.log(this.props)
       this.map.panTo({ lat: nextProps.lat, lng: nextProps.lng})
       
   }
@@ -16,9 +16,6 @@ class GoogleMap extends Component {
           center: { lat: this.props.lat, lng: this.props.lng },
           zoom:8
       })
-      const geocoder = new google.maps.Geocoder()
-
-      this.props.refs.submit
   }
 
   render() {

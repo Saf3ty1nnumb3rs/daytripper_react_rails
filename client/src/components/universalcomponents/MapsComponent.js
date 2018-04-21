@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import GoogleMap from "./GoogleMap";
-import Geocode from 'react-geocode'
+import Geocode from "react-geocode";
+import axios from "axios";
 /*global google*/
 
 const MapWrap = styled.div`
@@ -26,31 +27,54 @@ class MapsComponent extends Component {
   state = {
     lat: 33.749,
     lng: -84.388,
-    address: ''
+    location: {
+      
+      address: ""
+    }
   };
 
-  geocodeAddress = () => {
-      Geocode.setApiKey('AIzaSyAs0j5GYFUkufjW0McWQ4Auj5VD0K9EvtY')
-      Geocode.enableDebug()
-      Geocode.fromAddress(this.state.address).then(
-          response => {
-              const { lat, lng } = response.results[0].geometry.location
-              console.log(response.results)
-              console.log(lat, lng)
-          },
-          error => {
-              console.error(error)
-          }
-      )
+  handleChange = event => {
+    const name = event.target.name;
+    const newState = { ...this.state.location };
+    newState[name] = event.target.value;
+    console.log(newState);
+    this.setState({
+      location: newState
+    });
+  };
+
+  getGeocode = async event => {
+    event.preventDefault();
+
+    try {
+      const address = this.state.location.address;
+      const response = await axios.get(
+        `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${address}&key=AIzaSyDaRNeuHO-t_GpkEuuYg587TAxf6LKbHm4`
+      );
+      console.log(response);
+      await this.setState({
+        lat: response.results[0].geometry.location.lat,
+        lng: response.results[0].geometry.location.lng
+          
+      });
+    } catch (err) {
+      console.error(err.message);
     }
+  };
 
   render() {
-    
     return (
       <MapWrap>
         <div id="input">
-          <form onSubmit={this.geocodeAddress}>
-            <input id="address" ref="address" type="textbox" value="Address" />
+          <form onSubmit={this.getGeocode}>
+            <input
+              id="address"
+              name="address"
+              ref="address"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.address}
+            />
             <button id="submit" type="submit" value="Geocode" />
           </form>
         </div>
