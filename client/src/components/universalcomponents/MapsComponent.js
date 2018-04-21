@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import GoogleMap from "./GoogleMap";
-import Geocode from "react-geocode";
 import axios from "axios";
 /*global google*/
 
