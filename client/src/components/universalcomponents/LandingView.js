@@ -34,7 +34,7 @@ const LandingWrap = styled.div`
       color: transparent;
     }
     span {
-      background-image: url("http://img37.laughinggif.com/pic/HTTP21lZGlhMi5naXBoeS5jb20vbWVkaWEvWDVrUEsxUDlXTlJ3US9naXBoeS5naWYlog.gif");
+      background-image: url("https://media0.giphy.com/media/SYrMAmJZT4YcU/giphy.gif");
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px white;
