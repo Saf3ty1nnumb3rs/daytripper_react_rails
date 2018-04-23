@@ -21,6 +21,7 @@ class DestinationComponent extends Component {
     editDest: false,
     error: ''
   };
+
   toggleEdit = async () => {
     await this.setState({ editDest: !this.state.editDest });
     this.state.editDest
@@ -33,7 +34,6 @@ class DestinationComponent extends Component {
       ? await this.setState({ viewDest: false, editDest: false })
       : await this.setState({ viewDest: true, editDest: false });
   };
-
   toggleDestView = () => {
     this.setState({
       viewDest: true,
