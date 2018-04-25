@@ -15,6 +15,7 @@ const PostWrap = styled.div`
     line-height: 1.2vw;
     padding: 3px;
     overflow: auto;
+
     .subject {
       width: 43vw;
       display: flex;

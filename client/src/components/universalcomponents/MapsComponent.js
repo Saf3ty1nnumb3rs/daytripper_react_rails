@@ -42,13 +42,13 @@ class MapsComponent extends Component {
     lat: 33.749,
     lng: -84.388,
     location: {
-      address: ""
+      address: "Atlanta, GA"
     },
     isGeocodingError: false,
-    foundAddress: null
+    foundAddress: INITIAL_LOCATION.address
   };
   shouldComponentUpdate() {
-    return false;
+     return true;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -56,7 +56,7 @@ class MapsComponent extends Component {
     this.map.panTo({ lat: nextProps.lat, lng: nextProps.lng });
   }
   componentDidMount() {
-      this.getInitialState()
+    this.getInitialState();
     this.map = new google.maps.Map(this.refs.map, {
       center: {
         lat: INITIAL_LOCATION.position.lat,
@@ -74,11 +74,11 @@ class MapsComponent extends Component {
     this.geocoder = new google.maps.Geocoder();
   }
 
-  getInitialState = () => {
-    return {
+  getInitialState = initaddy => {
+    this.setState({
       isGeocodingError: false,
       foundAddress: INITIAL_LOCATION.address
-    };
+    });
   };
 
   handleChange = event => {
@@ -94,55 +94,53 @@ class MapsComponent extends Component {
   getGeocode = async event => {
     event.preventDefault();
     const address = this.searchInput.value;
-    console.log(address)
+    console.log(address);
     this.geocodeAddress(address);
   };
 
   geocodeAddress = address => {
     this.geocoder.geocode(
       { address: address },
-      function handleResults(results, status){
-        if (status === google.maps.GeocoderStatus.OK){
-    
-            this.setState({
-                foundAddress: results[0].formatted_address,
-                isGeocodingError: false
-              });
-    
+      function handleResults(results, status) {
+        if (status === 'OK') {
+          console.log("handler");
+          console.log(results)
+          this.setState({
+            foundAddress: results[0].formatted_address,
+            isGeocodingError: false
+          });
+          console.log(results);
+          console.log(status);
           this.map.setCenter(results[0].geometry.location);
           this.marker.setPosition(results[0].geometry.location);
-    
+
           return;
         }
-    
+
         this.setState({
-            foundAddress: null,
-            isGeocodingError: true
-          });
-    
+          foundAddress: null,
+          isGeocodingError: true
+        });
+
         this.map.setCenter({
           lat: ATLANTIC_OCEAN.latitude,
           lng: ATLANTIC_OCEAN.longitude
         });
-    
+
         this.marker.setPosition({
           lat: ATLANTIC_OCEAN.latitude,
           lng: ATLANTIC_OCEAN.longitude
         });
       }.bind(this)
     );
-    console.log(this.results)
-    console.log(this.status)
-
   };
 
   handleResults = (results, status) => {
     if (status === google.maps.GeocoderStatus.OK) {
-
-        this.setState({
-            foundAddress: results[0].formatted_address,
-            isGeocodingError: false
-          });
+      this.setState({
+        foundAddress: results[0].formatted_address,
+        isGeocodingError: false
+      });
 
       this.map.setCenter(results[0].geometry.location);
       this.marker.setPosition(results[0].geometry.location);
@@ -151,9 +149,9 @@ class MapsComponent extends Component {
     }
 
     this.setState({
-        foundAddress: null,
-        isGeocodingError: true
-      });
+      foundAddress: null,
+      isGeocodingError: true
+    });
 
     this.map.setCenter({
       lat: ATLANTIC_OCEAN.latitude,
@@ -183,16 +181,16 @@ class MapsComponent extends Component {
               onChange={this.handleChange}
               value={this.state.address}
             />
-            <button id="submit" type="submit" value="Geocode" />
+            <button id="submit" type="submit">
+              Find Location
+            </button>
           </form>
           <div className="location">
-            
-              {this.state.isGeocodingError ? (
-                <p className="bg-danger">Address not found.</p>
-              ) : (
-                <p className="bg-info">{this.state.foundAddress}</p>
-              )}
-            
+            {this.state.isGeocodingError ? (
+              <p className="bg-danger">Address not found.</p>
+            ) : (
+              <p className="bg-info">{this.state.foundAddress}</p>
+            )}
           </div>
         </div>
         <div id="map" ref="map" />

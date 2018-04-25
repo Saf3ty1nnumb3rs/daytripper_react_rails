@@ -5,7 +5,10 @@ import EditPost from "./EditPost";
 import DeletePost from "./DeletePost";
 import styled from "styled-components";
 
-const PostWrapper = styled.div``;
+const PostWrapper = styled.div`
+  
+
+`;
 
 class PostComponent extends Component {
   state = {
