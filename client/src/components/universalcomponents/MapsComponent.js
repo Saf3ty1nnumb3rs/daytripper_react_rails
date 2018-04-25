@@ -14,6 +14,7 @@ const MapWrap = styled.div`
   bottom: 0;
   .location {
     background-color: silver;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   }
   #input {
     position: absolute;
