@@ -13,7 +13,7 @@ const LandingWrap = styled.div`
   .letter-box {
     display: flex;
     position: fixed;
-    height: 40vh;
+    height: 20vh;
     top: 20vh;
     right: 0;
     left: 0;

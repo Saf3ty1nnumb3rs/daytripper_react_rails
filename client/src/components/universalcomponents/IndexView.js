@@ -21,7 +21,7 @@ const IndexWrap = styled.div`
   }
 `;
 const ElementContainer = styled.div`
-  height: 80vw;
+  height: 90vw;
   width: 100vw;
   margin-top: 100px;
   margin-bottom: 50px;

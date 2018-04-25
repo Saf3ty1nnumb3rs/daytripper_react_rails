@@ -5,23 +5,53 @@ import axios from "axios";
 /*global google*/
 
 const MapWrap = styled.div`
-  width: 63vw;
-  height: 38vw;
-  margin-left: 2vw;
+  width: 95.1vw;
+  height: 50vw;
+  margin-left: 2.1vw;
+  margin-top: 98px;
   background-color: white;
   position: absolute;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   bottom: 0;
   .location {
+    margin-top: 50px;
     background-color: silver;
     box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
+    
   }
+  @media (max-width: 600px ){
+     .location {
+       visibility: hidden;
+     } 
+     button {
+       width: 9vw;
+     }
+     input {
+       width: 25vw;
+     }
+    }
   #input {
     position: absolute;
     z-index: 100;
     top: 5px;
     left: 0;
     right: 0;
+    form {
+      max-width: 91vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    input {
+      box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.8);
+      margin-right: 5px;
+    }
+    button {
+      box-shadow: 1px 3px 6px 1px rgba(0, 0, 0, 0.8);
+      margin-left: 5px;
+      background-color: silver;
+      color: white;
+    }
   }
 `;
 
@@ -183,7 +213,7 @@ class MapsComponent extends Component {
               value={this.state.address}
             />
             <button id="submit" type="submit">
-              Find Location
+              Find
             </button>
           </form>
           <div className="location">
