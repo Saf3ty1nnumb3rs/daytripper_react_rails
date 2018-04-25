@@ -10,14 +10,18 @@ const AddWrap = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.6);
   align-items: center;
   form {
+    input {
+      width: 43vw;
+      border-radius: 2px;
+    }
     .subject {
-      width: 22.5vw;
       border-bottom: 1px solid lightgray;
       font-weight: 700;
       text-align: start;
     }
     textarea#content {
       width: 43vw;
+      border-radius: 2px;
     }
   }
   .img {
@@ -52,6 +56,17 @@ class AddPost extends Component {
     newPost[name] = event.target.value;
     this.setState({ newPost: newPost });
   };
+
+  clearForm = () => {
+    this.setState( {
+      newPost: {
+        image: "",
+        subject: "",
+        content: ""
+      }
+    } )
+
+  }
 
   addPost = async event => {
     event.preventDefault();
@@ -110,7 +125,7 @@ class AddPost extends Component {
 
           <ButtonWrap>
             <button type="submit">Add Post</button>
-            <button type="reset"> Cancel </button>
+            <button type="reset" onClick={this.clearForm}> Cancel </button>
           </ButtonWrap>
         </form>
       </AddWrap>

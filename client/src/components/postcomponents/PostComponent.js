@@ -56,6 +56,7 @@ class PostComponent extends Component {
         });
   };
 
+
   updatePost = async (post) => {
     try {
 
@@ -72,6 +73,7 @@ class PostComponent extends Component {
     }
   };
 
+
   removePost = async() => {
     try {
         await axios.delete(`/api/destinations/${this.props.destId}/posts/${this.props.post.id}`)
@@ -81,6 +83,7 @@ class PostComponent extends Component {
     }
   }
 
+  
   render() {
     const post = this.props.post;
     return (

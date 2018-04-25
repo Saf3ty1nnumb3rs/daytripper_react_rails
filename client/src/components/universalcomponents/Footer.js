@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 const FootWrap = styled.div`
   width: 100vw;
@@ -38,7 +39,7 @@ class Footer extends Component {
           DAY<span className="trip">TRIPPER</span>
         </div>
         <div className="info">
-          <div>Home</div>
+          <div><Link to='/'>Home</Link></div>
           <div>About</div>
         </div>
       </FootWrap>

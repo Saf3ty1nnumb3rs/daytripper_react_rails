@@ -27,6 +27,18 @@ class AddDestination extends Component {
     this.setState({ newDestination: newDest });
   };
 
+  clearForm = () => {
+    this.setState( {
+      newDestination: {
+        title: "",
+        image: "",
+        description: ""
+      }
+    } )
+
+  }
+
+
   addDestination = async event => {
       event.preventDefault()
       const payload = {
@@ -100,7 +112,7 @@ class AddDestination extends Component {
                 <button type="submit" onClick={this.addDestination}>
                   +
                 </button>
-                <button type="reset">Cancel</button>
+                <button type="reset" onClick={this.clearForm}>Cancel</button>
               </ButtonWrap>
             </form>
           </TextWrap>
@@ -154,8 +166,10 @@ const ButtonWrap = styled.div`
   button:first-child {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    margin-right: 2px;
   }
   button:nth-child(2) {
+    margin-left: 2px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     background-color: #ff3100;
