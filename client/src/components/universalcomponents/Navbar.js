@@ -55,6 +55,9 @@ class Navbar extends Component {
           <Link to="/">
             <button> Log In</button>
           </Link>
+          <Link to="/destinations">
+            <button> Destinations</button>
+          </Link>
         </div>
       </NavWrap>
     );

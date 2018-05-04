@@ -102,6 +102,7 @@ class MapsComponent extends Component {
         lng: this.state.lng
       }
     });
+   
     this.geocoder = new google.maps.Geocoder();
   }
 
