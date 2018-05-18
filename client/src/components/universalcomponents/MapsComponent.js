@@ -82,10 +82,6 @@ class MapsComponent extends Component {
      return true;
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(this.state);
-    this.map.panTo({ lat: nextProps.lat, lng: nextProps.lng });
-  }
   componentDidMount() {
     this.getInitialState();
     this.map = new google.maps.Map(this.refs.map, {
