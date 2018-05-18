@@ -111,7 +111,7 @@ class PostComponent extends Component {
           <DeletePost
             post={post}
             removePost={this.removePost}
-            toggleEditPost={this.toggleEditPost}
+            toggleDeletePost={this.toggleDeletePost}
             toggleViewPost={this.toggleViewPost}
           />
         ) : null}
