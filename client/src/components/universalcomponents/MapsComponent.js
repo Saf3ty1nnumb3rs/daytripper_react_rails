@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-// import GoogleMap from "./GoogleMap";
-import axios from "axios";
 /*global google*/
 
 const MapWrap = styled.div`
@@ -60,7 +58,7 @@ const ATLANTIC_OCEAN = {
   longitude: -55.491477
 };
 
-var INITIAL_LOCATION = {
+const INITIAL_LOCATION = {
   address: "Atlanta, GA",
   position: {
     lat: 33.749,
@@ -222,7 +220,6 @@ class MapsComponent extends Component {
           </div>
         </div>
         <div id="map" ref="map" />
-        {/* <GoogleMap lat={this.state.lat} lng={this.state.lng} refs={this.refs} /> */}
       </MapWrap>
     );
   }
