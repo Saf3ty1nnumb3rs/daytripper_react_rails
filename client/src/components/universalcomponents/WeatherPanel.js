@@ -21,8 +21,8 @@ const WeatherWrap = styled.div`
 `;
 
 const API_KEY = "531f5508f22bb1668df89181cf760723";
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
-const CURRENT_ROOT = `http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`;
+const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+const CURRENT_ROOT = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`;
 const INITIAL_LOCATION = {
   lat: 33.749,
   lon: -84.388
@@ -65,6 +65,7 @@ class WeatherPanel extends Component {
         humidity: w.humidity + "%",
         description: weather.weather[0].description,
         name: weather.name
+       
       });
     } catch (err) {
       console.log(err.message);
