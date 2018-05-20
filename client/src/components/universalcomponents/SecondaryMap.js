@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Map = styled.div`
   width: 28vw;
-  height: 12vw;
+  height: auto;
   margin: 14px auto;
   #pac-container {
       margin: 10px auto;
@@ -12,6 +12,14 @@ const Map = styled.div`
   .googs {
     width: 28vw;
     height: 8vw;
+  }
+  @media (max-width: 955px) {
+      width: 95vw;
+      height: auto;
+      .googs {
+          width: 95vw;
+          height:23vw;
+      }
   }
 `;
 

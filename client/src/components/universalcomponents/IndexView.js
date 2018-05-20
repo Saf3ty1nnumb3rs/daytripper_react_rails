@@ -28,6 +28,11 @@ const ElementContainer = styled.div`
   margin-right: 22px;
   margin-left: auto;
   position: relative;
+  @media (max-width: 955px) {
+    height: auto;
+    margin-top: 38px;
+    display: block;
+  }
 `;
 
 class IndexView extends Component {

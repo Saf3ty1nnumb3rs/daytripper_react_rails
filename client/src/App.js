@@ -29,10 +29,14 @@ html, body {
   height: 100%;
 }
 #footer {
-  position: absolute;
-  botoom: 0;
+
   right: 0;
   left: 0;
+  @media (max-width: 955px) {
+    position: relative;
+    margin-bottom: 0;
+    bottom: 0;
+  }
 }
 `;
 

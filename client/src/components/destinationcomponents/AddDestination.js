@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import axios from 'axios'
-import { Redirect } from 'react-router-dom'
-
-
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class AddDestination extends Component {
   state = {
@@ -28,54 +26,52 @@ class AddDestination extends Component {
   };
 
   clearForm = () => {
-    this.setState( {
+    this.setState({
       newDestination: {
         title: "",
         image: "",
         description: ""
       }
-    } )
-
-  }
-
+    });
+  };
 
   addDestination = async event => {
-      event.preventDefault()
-      const payload = {
-          destination: {
-            title: this.state.newDestination.title,
-            image: this.state.newDestination.image,
-            description: this.state.newDestination.description
-          }
-      } 
-      try{ 
-          await axios.post(`/api/destinations`, payload)
-          await this.props.getAllDestinations()
-          this.setState( {newDestination: {
-            title: "",
-            image: "",
-            description: ""
-          },
-        redirect: true } )
-      }catch(err){
-          console.log(err.message)
-          this.setState( { err: err.message } )
+    event.preventDefault();
+    const payload = {
+      destination: {
+        title: this.state.newDestination.title,
+        image: this.state.newDestination.image,
+        description: this.state.newDestination.description
       }
-  }
+    };
+    try {
+      await axios.post(`/api/destinations`, payload);
+      await this.props.getAllDestinations();
+      this.setState({
+        newDestination: {
+          title: "",
+          image: "",
+          description: ""
+        },
+        redirect: true
+      });
+    } catch (err) {
+      console.log(err.message);
+      this.setState({ err: err.message });
+    }
+  };
   render() {
-      if(this.state.redirect){
-          return(<Redirect to={`/destinations/${this.props.destinations[0].id}`} />)
-      }
+    if (this.state.redirect) {
+      return <Redirect to={`/destinations/${this.props.destinations[0].id}`} />;
+    }
     const destination = this.state.newDestination;
     return (
       <AddWrap>
         <PositionWrap>
-          <ImageWrap>
-            
-          </ImageWrap>
+          <ImageWrap />
           <TextWrap>
             <form onSubmit={this.props.handleSubmit}>
-                <p>Add a destination!</p>
+              <p>Add a destination!</p>
               <div>
                 <input
                   className="inputs"
@@ -112,7 +108,9 @@ class AddDestination extends Component {
                 <button type="submit" onClick={this.addDestination}>
                   +
                 </button>
-                <button type="reset" onClick={this.clearForm}>Cancel</button>
+                <button type="reset" onClick={this.clearForm}>
+                  Cancel
+                </button>
               </ButtonWrap>
             </form>
           </TextWrap>
@@ -131,15 +129,23 @@ const AddWrap = styled.div`
   background-color: white;
   position: absolute;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
+  @media (max-width: 955px) {
+    width: 95vw;
+    position: relative;
+    margin: 18px auto;
+  }
 `;
 const PositionWrap = styled.div`
   width: 63vw;
   height: 38vw;
   display: flex;
   position: relative;
+  @media (max-width: 955px) {
+    width: 95vw;
+  }
 `;
 const ImageWrap = styled.div`
-  background-image: url('https://static1.squarespace.com/static/570f1d454c2f8553e926cdc5/5786c752e4fcb577ca60c8ac/57858672c534a5ef75f99241/1512145729751/Coast+Camp%2C+Pt.+Reyes.jpg?format=1000w');
+  background-image: url("https://static1.squarespace.com/static/570f1d454c2f8553e926cdc5/5786c752e4fcb577ca60c8ac/57858672c534a5ef75f99241/1512145729751/Coast+Camp%2C+Pt.+Reyes.jpg?format=1000w");
   background-size: cover;
   width: 33vw;
   height: 33vw;
@@ -187,9 +193,9 @@ const TextWrap = styled.div`
       width: 5vw;
       border-radius: 4px;
     }
-    p{
+    p {
       font-size: 1.2vw;
-      }
+    }
     .inputs {
       font-size: 1.5vw;
       margin: 10% auto;
@@ -197,6 +203,20 @@ const TextWrap = styled.div`
       height: 2.4vw;
       border: none;
       border-bottom: 1px solid black;
+    }
+  }
+  @media (max-width: 955px) {
+    margin: 0.1vw auto;
+    width: 50vw;
+    form {
+      .inputs {
+        margin: 2vw auto;
+        height: 2vw;
+      }
+      p {
+        font-size: 3vw;
+        margin: 2px auto;
+      }
     }
   }
 `;

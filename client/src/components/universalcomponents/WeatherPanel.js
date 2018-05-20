@@ -8,7 +8,7 @@ import SecondaryMap from "./SecondaryMap";
 const WeatherWrap = styled.div`
   display: block;
   width: 28vw;
-  height: 90vw;
+  height: auto;
   margin-right: 2.5vw;
   margin-left: auto;
   border: 2px solid lightgray;
@@ -17,6 +17,11 @@ const WeatherWrap = styled.div`
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   .chart {
     margin-top: 10px;
+  }
+  @media (max-width: 955px) {
+    width: 95vw;
+    height: auto;
+    margin: 18px auto;
   }
 `;
 
@@ -39,7 +44,7 @@ class WeatherPanel extends Component {
     low: "",
     humidity: "",
     description: "",
-    name:''
+    name: ""
   };
 
   componentDidMount() {
@@ -57,7 +62,7 @@ class WeatherPanel extends Component {
       const req = await axios.get(current);
       const weather = req.data;
       const w = weather.main;
-      console.log(req)
+      console.log(req);
       this.setState({
         current: w.temp * (9 / 5) - 459.67,
         high: w.temp_max * (9 / 5) - 459.67,
@@ -65,7 +70,6 @@ class WeatherPanel extends Component {
         humidity: w.humidity + "%",
         description: weather.weather[0].description,
         name: weather.name
-       
       });
     } catch (err) {
       console.log(err.message);
@@ -114,7 +118,7 @@ class WeatherPanel extends Component {
             name={this.state.name}
           />
         </div>
-        <div  className="chart">
+        <div className="chart">
           <Chart city={city} data={temps} color="green" units="F" />
         </div>
       </div>
