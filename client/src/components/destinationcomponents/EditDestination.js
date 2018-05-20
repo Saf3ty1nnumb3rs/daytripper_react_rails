@@ -6,6 +6,10 @@ const EditWrap = styled.div`
   height: 38vw;
   display: flex;
   position: relative;
+  @media (max-width: 955px) {
+    width: 95vw;
+    height: 40vw;
+  }
 `;
 const ImageWrap = styled.div`
   width: 33vw;
@@ -56,12 +60,23 @@ const TextWrap = styled.div`
   } 
     .inputs {
     font-size: 1.5vw;
-    margin: 10% auto;
-    width: 80%;
-    height: 2.4vw;
+    margin: 2vw auto;
+    width: 90%;
+    height: 3vw;
     border: none;
     border-bottom: 1px solid black;
   }
+  }
+  @media (max-width: 955px) {
+    width: 55vw;
+    margin: 1vw auto;
+    form {
+      .inputs {
+      margin: .5vw;
+    }
+    }
+   
+    
   }
 `;
 

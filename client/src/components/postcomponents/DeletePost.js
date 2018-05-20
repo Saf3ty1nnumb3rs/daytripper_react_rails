@@ -8,6 +8,10 @@ const DeleteWrap = styled.div`
   display: flex;
   border: 1px solid rgba(0, 0, 0, 0.6);
   align-items: center;
+  @media (max-width: 955px) {
+    width: 95vw;
+    margin: 18px auto;
+  }
   `
 
 

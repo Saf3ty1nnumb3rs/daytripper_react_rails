@@ -6,6 +6,10 @@ const ViewWrap = styled.div`
   height: 38vw;
   display: flex;
   position: relative;
+  @media (max-width: 955px) {
+    width: 95vw;
+    height: 40vw;
+  }
 `;
 const ImageWrap = styled.div`
   width: 33vw;
@@ -29,6 +33,10 @@ const TextWrap = styled.div`
   }
   p:nth-child(2) {
     font-size: 1.5vw;
+  }
+  @media (max-width: 955px) {
+    width: 55vw;
+    margin: 1vw auto;
   }
 `;
 const ButtonWrap = styled.div`

@@ -29,6 +29,10 @@ const EditWrap = styled.div`
       border-radius: 50%;
     }
   }
+  @media (max-width: 955px) {
+    width: 95vw;
+    margin: 18px auto;
+  }
 `;
 const ButtonWrap = styled.div`
 

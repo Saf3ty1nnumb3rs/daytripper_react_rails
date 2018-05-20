@@ -12,6 +12,10 @@ const DestinationWrap = styled.div`
   background-color: white;
   position: absolute;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
+  @media (max-width: 955px) {
+    width: 95vw;
+    height: 40vw;
+  }
 `;
 
 class DestinationComponent extends Component {

@@ -3,16 +3,16 @@ import styled from "styled-components";
 import axios from "axios";
 
 const AddWrap = styled.div`
-  width: 55vw;
-  height: 10vw;
+  width: 59vw;
+  height: 123px;
   margin: 1vw 2vw;
-  display: flex;
   border: 1px solid rgba(0, 0, 0, 0.6);
   align-items: center;
   form {
     input {
       width: 43vw;
-      border-radius: 2px;
+      border: none;
+      border-bottom: 1px solid black;
     }
     .subject {
       border-bottom: 1px solid lightgray;
@@ -21,7 +21,8 @@ const AddWrap = styled.div`
     }
     textarea#content {
       width: 43vw;
-      border-radius: 2px;
+      border: none;
+      border-bottom: 1px solid black;
     }
   }
   .img {
@@ -33,6 +34,18 @@ const AddWrap = styled.div`
       width: 5vw;
       border-radius: 50%;
     }
+  }
+  @media (max-width: 955px) {
+    form {
+      input {
+        width: 80vw;
+      }
+      textarea#content {
+      width: 80vw;
+      }
+    }
+    width: 93vw;
+    margin: 18px auto;
   }
 `;
 

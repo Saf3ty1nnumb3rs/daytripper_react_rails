@@ -6,6 +6,10 @@ const DeleteWrap = styled.div`
   height: 38vw;
   display: flex;
   position: relative;
+  @media (max-width: 955px) {
+    width: 95vw;
+    height: 40vw;
+  }
 `;
 const ImageWrap = styled.div`
   width: 33vw;
