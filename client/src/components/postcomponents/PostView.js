@@ -14,7 +14,6 @@ const PostWrap = styled.div`
     height: 10vw; 
     line-height: 1.2vw;
     padding: 3px;
-    overflow: auto;
 
     .subject {
       width: 43vw;
@@ -23,6 +22,16 @@ const PostWrap = styled.div`
       border-bottom: 1px solid lightgray;
       font-weight: 700;
       text-align: start;
+      button {
+        width: 4vw;
+        color: white;
+      }
+      button.delete {
+        background-color: #E82C0C;
+      }
+      button.edit {
+        background-color: #1B78FF;
+      }
     }
     .content {
         width:43vw;
@@ -53,8 +62,8 @@ class PostView extends Component {
           <div className="subject">
             <p>{post.subject}</p>
             <div>
-                <button onClick={this.props.toggleEditPost}>Edit</button>
-                <button onClick={this.props.toggleDeletePost}>Delete</button>
+                <button className="edit" onClick={this.props.toggleEditPost}>Edit</button>
+                <button className="delete" onClick={this.props.toggleDeletePost}>Delete</button>
             </div>
           </div>
 

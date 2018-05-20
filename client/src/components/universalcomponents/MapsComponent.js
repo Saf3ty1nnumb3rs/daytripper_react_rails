@@ -3,7 +3,7 @@ import styled from "styled-components";
 /*global google*/
 
 const MapWrap = styled.div`
-  width: 95.1vw;
+  width: 63vw;
   height: 50vw;
   margin-left: 2.1vw;
   margin-top: 98px;
