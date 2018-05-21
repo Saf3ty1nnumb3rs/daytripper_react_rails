@@ -8,7 +8,7 @@ const ImageWrap = styled.div`
   overflow: hidden;
   position: relative;
   img {
-    width: 40vw;
+    width: 42vw;
     height: auto;
   }
   button {
@@ -21,7 +21,11 @@ const ImageWrap = styled.div`
       position: absolute;
       
   }
-  
+  @media (max-width: 955px) {
+    img {
+        width: 42vw;
+    }
+  }
 `;
 
 class ViewImage extends Component {

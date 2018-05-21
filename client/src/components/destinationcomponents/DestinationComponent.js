@@ -13,8 +13,10 @@ const DestinationWrap = styled.div`
   position: absolute;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   @media (max-width: 955px) {
+    position: relative;
     width: 95vw;
     height: 40vw;
+    margin: 2vw auto;
   }
 `;
 

@@ -14,6 +14,14 @@ const ListWrap = styled.div`
   border: 2px solid lightgray;
   background-color: white;
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
+  @media (max-width: 955px) {
+    height: 28vw;
+    bottom: 0;
+    position: relative;
+    width: 95vw;
+    margin: 2vw auto;
+    display: flex;
+  }
 `;
 class ListImage extends Component {
   render() {

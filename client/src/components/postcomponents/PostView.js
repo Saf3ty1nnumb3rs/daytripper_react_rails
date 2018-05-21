@@ -11,7 +11,6 @@ const PostWrap = styled.div`
   .post {
     display: block;
     height: 45px;
-    line-height: 1.2vw;
     padding: 3px;
 
     .subject {
@@ -36,6 +35,13 @@ const PostWrap = styled.div`
     }
     .content {
       width: 43vw;
+      overflow-y: auto;
+      p{
+        height: 80px;
+        margin: 0 auto;
+       
+      }
+      
     }
   }
   .img {
@@ -51,11 +57,19 @@ const PostWrap = styled.div`
     }
   }
   @media (max-width: 955px) {
-    width: 93vw;
+    width: 94vw;
     margin: 18px auto;
     .post {
-      .subject, .content {
-        width: 70vw;
+      width: 74vw;
+      .subject {
+        width: 69vw;
+        button {
+         text-align: center;
+         width: 5vw;
+        }
+      }
+      .content {
+        width: 69vw;
       }
       
     }
@@ -78,7 +92,7 @@ class PostView extends Component {
                 Edit
               </button>
               <button className="delete" onClick={this.props.toggleDeletePost}>
-                Delete
+                 X
               </button>
             </div>
           </div>

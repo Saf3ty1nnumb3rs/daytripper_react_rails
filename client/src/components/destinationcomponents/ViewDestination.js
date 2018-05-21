@@ -45,7 +45,7 @@ const ButtonWrap = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 15px;
+  bottom: 13px;
   button {
     font-size: 1.3vw;
     width: 5vw;

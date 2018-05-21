@@ -13,7 +13,10 @@ const ListWrap = styled.div`
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.8);
   bottom: 0;
   @media (max-width: 955px) {
+    position: relative;
     width: 95vw;
+    height: 48vw;
+    margin: 2vw auto;
   }
 `;
 

@@ -29,7 +29,7 @@ const ButtonWrap = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 15px;
+  bottom: 13px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   button {
@@ -69,14 +69,24 @@ const TextWrap = styled.div`
   }
   @media (max-width: 955px) {
     width: 55vw;
-    margin: 1vw auto;
+    margin: .6vw auto;
     form {
       .inputs {
-      margin: .5vw;
+      margin: .4vw;
     }
+    button {
+      margin-top: 0; 
     }
-   
-    
+    } 
+  }
+  @media (max-width: 360px){
+    form {
+      text-align: start;
+      button {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
   }
 `;
 
