@@ -46,6 +46,12 @@ const Card = styled.div`
     border: none;
     border-bottom: 1px solid black;
   }
+  @media (max-width: 955px) {
+    .inputs {
+      margin: 1vw auto;
+      height: 2vw;
+    }
+  }
 `;
 
 class AddImage extends Component {
