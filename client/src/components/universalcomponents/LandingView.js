@@ -13,8 +13,8 @@ const LandingWrap = styled.div`
   .letter-box {
     display: flex;
     position: fixed;
-    height: 20vh;
-    top: 20vh;
+    height: 11vw;
+    top: 30vh;
     right: 0;
     left: 0;
     color: white;
@@ -22,6 +22,7 @@ const LandingWrap = styled.div`
     border-bottom: 1px solid purple;
     border-top: 1px solid purple;
     padding: 1em 2em;
+   
     p {
       margin-left: 18vw;
       font-size: 2vw;
@@ -43,8 +44,10 @@ const LandingWrap = styled.div`
       font-size: 10vw;
     }
     @media (max-width: 510px) {
-      top: 36vh;
-      margin: auto;
+      span {
+      font-size: 12vw;
+      }
+      
     }
   }
 `;
